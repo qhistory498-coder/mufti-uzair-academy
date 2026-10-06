@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मुफ्ती उज़ैर एकेडमी - सुरक्षित छात्र डेटा</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 800px; background: #fff; padding: 25px; margin: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { color: #1e3c72; text-align: center; }
+        label { font-weight: bold; display: block; margin-top: 15px; color: #333; }
+        input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { background: #28a745; color: white; border: none; padding: 12px; width: 100%; margin-top: 20px; font-size: 16px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #218838; }
+        #studentPanel, #loginBox { display: none; }
+        .login-container { max-width: 400px; margin: auto; text-align: center; }
+        
+        /* Table for Students Data */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 14px; }
+        th { background-color: #1e3c72; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .no-data { text-align: center; color: #666; margin-top: 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- लॉगिन बॉक्स (गुप्त पासवर्ड के बिना कोई अंदर नहीं आ सकता) -->
+    <div id="loginBox" class="login-container">
+        <h2>🔐 छात्र डेटा सुरक्षा लॉगिन</h2>
+        <p style="color: #666; font-size: 14px;">यह पेज केवल सद्दाम भाई और मुफ्ती उज़ैर साहब के लिए सुरक्षित है।</p>
+        <label>गुप्त पासवर्ड दर्ज करें:</label>
+        <input type="password" id="adminPass" placeholder="पासवर्ड लिखें...">
+        <button onclick="checkPassword()">लॉगिन करें</button>
+        <p id="loginError" style="color: red; margin-top: 10px; font-weight: bold;"></p>
+    </div>
+
+    <!-- छात्रों की लिस्ट वाला पैनल (पासवर्ड सही होने के बाद ही दिखेगा) -->
+    <div id="studentPanel">
+        <h2>📋 कोर्स के लिए आवेदन करने वाले छात्रों की लिस्ट</h2>
+        <p style="text-align: center; color: #666; font-size: 14px;">यहाँ सभी छात्रों का नाम, फोन नंबर और पूरा पता सुरक्षित रूप से दिखाई देगा।</p>
+        <div id="loading" style="text-align: center; font-weight: bold; color: #007bff;">डेटा लोड हो रहा है...</div>
+        <div style="overflow-x: auto;">
+            <table id="studentTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>छात्र का नाम</th>
+                        <th>मोबाइल नंबर (WhatsApp)</th>
+                        <th>चुना गया कोर्स</th>
+                        <th>पूरा पता (Address)</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    <!-- डेटा यहाँ जावास्क्रिप्ट से आएगा -->
+                </tbody>
+            </table>
+        </div>
+        <p id="noStudents" class="no-data" style="display: none;">अभी तक किसी छात्र ने आवेदन नहीं किया है।</p>
+    </div>
+</div>
+
+<!-- Firebase SDKs & Security Logic -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // आपकी Firebase डिजिटल चाबी (Config)
+    const firebaseConfig = {
+        apiKey: "AIzaSyA4h47xTukc6Jm7gymW4pQeZmUjbLRPF8",
+        authDomain: "mufti-uzair-academy.firebaseapp.com",
+        projectId: "mufti-uzair-academy",
+        storageBucket: "mufti-uzair-academy.firebasestorage.app",
+        messagingSenderId: "569334821978",
+        appId: "1:569334821978:web:f0054458844d4a83843d63"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // पासवर्ड चेक करने का फंक्शन
+    window.checkPassword = function() {
+        const pass = document.getElementById('adminPass').value;
+        
+        if (pass === "uzair786saddamtechsolution") {
+            document.getElementById('loginBox').style.display = 'none';
+            document.getElementById('studentPanel').style.display = 'block';
+            sessionStorage.setItem('isStudentAdminLoggedIn', 'true');
+            loadStudentsData();
+        } else {
+            document.getElementById('loginError').innerText = "❌ गलत पासवर्ड! कृपया सही पासवर्ड डालें।";
+        }
+    }
+
+    // अगर पहले से लॉगिन किया हुआ है तो दोबारा पासवर्ड न मांगे
+    if (sessionStorage.getItem('isStudentAdminLoggedIn') === 'true') {
+        document.getElementById('loginBox').style.display = 'none';
+        document.getElementById('studentPanel').style.display = 'block';
+        loadStudentsData();
+    } else {
+        document.getElementById('loginBox').style.display = 'block';
+    }
+
+    // डेटाबेस से छात्रों की लिस्ट लाने का फंक्शन
+    async function loadStudentsData() {
+        const tableBody = document.getElementById('studentTableBody');
+        const table = document.getElementById('studentTable');
+        const loading = document.getElementById('loading');
+        const noStudents = document.getElementById('noStudents');
+
+        try {
+            const querySnapshot = await getDocs(collection(db, "enrollments"));
+            loading.style.display = 'none';
+
+            if (querySnapshot.empty) {
+                noStudents.style.display = 'block';
+                return;
+            }
+
+            table.style.display = 'table';
+            tableBody.innerHTML = "";
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${data.studentName || 'N/A'}</strong></td>
+                    <td><a href="tel:${data.studentPhone}" style="color: #007bff; text-decoration: none; font-weight: bold;">${data.studentPhone || 'N/A'}</a></td>
+                    <td><span style="background: #e9ecef; padding: 4px 8px; border-radius: 4px; font-weight: bold;">${data.courseName || 'N/A'}</span></td>
+                    <td>${data.studentAddress || 'N/A'}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        } catch (error) {
+            loading.innerText = "डेटा लोड करने में समस्या आई: " + error.message;
+            loading.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>
