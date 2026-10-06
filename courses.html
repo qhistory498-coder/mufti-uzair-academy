@@ -15,6 +15,15 @@
         .buy-btn { background: #007bff; color: white; border: none; padding: 10px 15px; width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold; }
         .buy-btn:hover { background: #0056b3; }
         #loading { text-align: center; font-size: 18px; color: #666; margin-top: 30px; }
+        
+        /* Modal Popup Styling */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+        .modal-content { background: white; padding: 25px; border-radius: 8px; width: 90%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto; }
+        .modal-content h3 { color: #1e3c72; margin-top: 0; }
+        .modal-content label { font-weight: bold; display: block; margin-top: 10px; font-size: 14px; color: #333; }
+        .modal-content input, .modal-content textarea { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .modal-btn { background: #28a745; color: white; border: none; padding: 10px; width: 100%; margin-top: 15px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .close-btn { background: #dc3545; margin-top: 8px; }
     </style>
 </head>
 <body>
@@ -23,10 +32,32 @@
 <p id="loading">कोर्सेज लोड हो रहे हैं...</p>
 <div class="course-grid" id="courseContainer"></div>
 
+<!-- Enrollment Modal Popup -->
+<div id="enrollModal" class="modal">
+    <div class="modal-content">
+        <h3>📝 कोर्स के लिए आवेदन फॉर्म</h3>
+        <p id="modalCourseTitle" style="font-weight: bold; color: #555; font-size: 14px;"></p>
+        <form id="enrollForm">
+            <label>छात्र का पूरा नाम:</label>
+            <input type="text" id="studentName" required placeholder="अपना पूरा नाम लिखें">
+
+            <label>मोबाइल नंबर (WhatsApp):</label>
+            <input type="tel" id="studentPhone" required placeholder="अपना फोन नंबर लिखें">
+
+            <label>पूरा पता (Address / शहर / राज्य):</label>
+            <textarea id="studentAddress" rows="3" required placeholder="अपना पूरा पता और शहर का नाम यहाँ लिखें..."></textarea>
+
+            <button type="submit" class="modal-btn">दाखिला सुरक्षित करें</button>
+            <button type="button" class="modal-btn close-btn" onclick="closeModal()">रद्द करें</button>
+        </form>
+        <p id="enrollStatus" style="text-align: center; margin-top: 10px; font-weight: bold;"></p>
+    </div>
+</div>
+
 <!-- Firebase SDKs -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyA4h47xTukc6Jm7gymW4pQeZmUjbLRPF8",
@@ -39,6 +70,8 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+
+    let selectedCourseName = "";
 
     async function loadCourses() {
         const container = document.getElementById('courseContainer');
@@ -61,7 +94,7 @@
                     <div class="course-title">${course.title}</div>
                     <div class="course-desc">${course.description}</div>
                     <div class="course-price">फीस: ${course.price}</div>
-                    <button class="buy-btn" onclick="alert('कोर्स खरीदने के लिए संपर्क करें!')">अभी दाखिला लें (Enroll)</button>
+                    <button class="buy-btn" onclick="openEnrollModal('${course.title.replace(/'/g, "\\'")}')">अभी दाखिला लें (Enroll)</button>
                 `;
                 container.appendChild(card);
             });
@@ -69,6 +102,51 @@
             loading.innerText = "कोर्स लोड करने में समस्या आई: " + error.message;
         }
     }
+
+    // Open Modal Function
+    window.openEnrollModal = function(courseTitle) {
+        selectedCourseName = courseTitle;
+        document.getElementById('modalCourseTitle').innerText = "कोर्स: " + courseTitle;
+        document.getElementById('enrollModal').style.display = 'flex';
+        document.getElementById('enrollStatus').innerText = "";
+        document.getElementById('enrollForm').reset();
+    }
+
+    // Close Modal Function
+    window.closeModal = function() {
+        document.getElementById('enrollModal').style.display = 'none';
+    }
+
+    // Handle Enrollment Form Submit
+    const enrollForm = document.getElementById('enrollForm');
+    enrollForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const statusText = document.getElementById('enrollStatus');
+        statusText.style.color = "blue";
+        statusText.innerText = "डेटा सेव हो रहा है...";
+
+        const name = document.getElementById('studentName').value;
+        const phone = document.getElementById('studentPhone').value;
+        const address = document.getElementById('studentAddress').value;
+
+        try {
+            await addDoc(collection(db, "enrollments"), {
+                courseName: selectedCourseName,
+                studentName: name,
+                studentPhone: phone,
+                studentAddress: address,
+                enrolledAt: new Date()
+            });
+            statusText.style.color = "green";
+            statusText.innerText = "✅ आपका आवेदन जमा हो गया! मुफ्ती साहब जल्द आपसे संपर्क करेंगे।";
+            setTimeout(() => {
+                closeModal();
+            }, 2500);
+        } catch (error) {
+            statusText.style.color = "red";
+            statusText.innerText = "❌ एरर: " + error.message;
+        }
+    });
 
     loadCourses();
 </script>
