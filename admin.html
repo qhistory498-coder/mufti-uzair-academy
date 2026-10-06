@@ -3,58 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मुफ्ती उज़ैर एकेडमी - सुरक्षित एडमिन पैनल</title>
+    <title>मुफ्ती उज़ैर एकेडमी - एडमिन पैनल</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
-        .container { max-width: 500px; background: #fff; padding: 25px; margin: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 600px; background: #fff; padding: 25px; margin: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         h2 { color: #1e3c72; text-align: center; }
         label { font-weight: bold; display: block; margin-top: 15px; color: #333; }
         input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
         button { background: #28a745; color: white; border: none; padding: 12px; width: 100%; margin-top: 20px; font-size: 16px; border-radius: 5px; cursor: pointer; font-weight: bold; }
         button:hover { background: #218838; }
-        #status { text-align: center; margin-top: 15px; font-weight: bold; }
         #adminPanel, #loginBox { display: none; }
-        .login-container { text-align: center; }
+        .login-container { max-width: 400px; margin: auto; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- लॉगिन बॉक्स (बिना सही पासवर्ड कोई अंदर नहीं आ सकता) -->
+    <!-- लॉगिन बॉक्स -->
     <div id="loginBox" class="login-container">
         <h2>🔐 एडमिन लॉगिन</h2>
-        <p style="color: #666; font-size: 14px;">यह पेज केवल सद्दाम भाई और मुफ्ती उज़ैर साहब के लिए सुरक्षित है।</p>
         <label>गुप्त पासवर्ड दर्ज करें:</label>
         <input type="password" id="adminPass" placeholder="पासवर्ड लिखें...">
         <button onclick="checkPassword()">लॉगिन करें</button>
         <p id="loginError" style="color: red; margin-top: 10px; font-weight: bold;"></p>
     </div>
 
-    <!-- असली कोर्स अपलोड फॉर्म (पासवर्ड सही होने के बाद ही दिखेगा) -->
+    <!-- कोर्स और वीडियो अपलोड करने का पैनल -->
     <div id="adminPanel">
-        <h2>📚 नया कोर्स अपलोड करें</h2>
+        <h2>📚 नया कोर्स और वीडियो अपलोड करें</h2>
         <form id="courseForm">
             <label>कोर्स का नाम:</label>
             <input type="text" id="courseTitle" required placeholder="जैसे: तर्जुमा-ए-कुरान कोर्स">
 
-            <label>कोर्स का विवरण (Details):</label>
-            <textarea id="courseDesc" rows="4" required placeholder="कोर्स के बारे में यहाँ लिखें..."></textarea>
+            <label>कोर्स का विवरण (Description):</label>
+            <textarea id="courseDesc" rows="3" required placeholder="कोर्स के बारे में जानकारी लिखें..."></textarea>
 
-            <label>फीस / कीमत (रु में - Paid):</label>
-            <input type="text" id="coursePrice" required placeholder="जैसे: ₹499">
+            <label>कोर्स की फीस:</label>
+            <input type="text" id="coursePrice" required placeholder="जैसे: ₹500 या फ्री">
 
-            <button type="submit">कोर्स लाइव करें (Publish)</button>
+            <label>वीडियो का लिंक (MP4 वीडियो या सीधा लिंक):</label>
+            <input type="url" id="courseVideo" placeholder="यहाँ वीडियो का डायरेक्ट लिंक डालें...">
+
+            <label>पीडीएफ नोट्स / पढ़ाई का मटीरियल लिंक:</label>
+            <input type="url" id="courseNotes" placeholder="यहाँ नोट्स का लिंक डालें...">
+
+            <button type="submit">कोर्स और मटीरियल पब्लिश करें</button>
         </form>
-        <p id="status"></p>
+        <p id="statusMsg" style="text-align: center; margin-top: 15px; font-weight: bold;"></p>
     </div>
 </div>
 
-<!-- Firebase SDKs & Security Logic -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    // आपकी Firebase डिजिटल चाबी (Config)
     const firebaseConfig = {
         apiKey: "AIzaSyA4h47xTukc6Jm7gymW4pQeZmUjbLRPF8",
         authDomain: "mufti-uzair-academy.firebaseapp.com",
@@ -67,21 +69,17 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // पासवर्ड चेक करने का फंक्शन
     window.checkPassword = function() {
         const pass = document.getElementById('adminPass').value;
-        
-        // यहाँ पासवर्ड सिर्फ यही एक फिक्स कंबाइंड पासवर्ड रहेगा
         if (pass === "uzair786saddamtechsolution") {
             document.getElementById('loginBox').style.display = 'none';
             document.getElementById('adminPanel').style.display = 'block';
             sessionStorage.setItem('isAdminLoggedIn', 'true');
         } else {
-            document.getElementById('loginError').innerText = "❌ गलत पासवर्ड! कृपया सही पासवर्ड डालें।";
+            document.getElementById('loginError').innerText = "❌ गलत पासवर्ड!";
         }
     }
 
-    // अगर पहले से लॉगिन किया हुआ है तो दोबारा पासवर्ड न मांगे
     if (sessionStorage.getItem('isAdminLoggedIn') === 'true') {
         document.getElementById('loginBox').style.display = 'none';
         document.getElementById('adminPanel').style.display = 'block';
@@ -89,31 +87,29 @@
         document.getElementById('loginBox').style.display = 'block';
     }
 
-    const form = document.getElementById('courseForm');
-    const statusText = document.getElementById('status');
-
-    form.addEventListener('submit', async (e) => {
+    const courseForm = document.getElementById('courseForm');
+    courseForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        statusText.style.color = "blue";
-        statusText.innerText = "कोर्स अपलोड हो रहा है...";
+        const status = document.getElementById('statusMsg');
+        status.style.color = "blue";
+        status.innerText = "अपलोड हो रहा है...";
 
         const title = document.getElementById('courseTitle').value;
         const description = document.getElementById('courseDesc').value;
         const price = document.getElementById('coursePrice').value;
+        const videoUrl = document.getElementById('courseVideo').value;
+        const notesUrl = document.getElementById('courseNotes').value;
 
         try {
             await addDoc(collection(db, "courses"), {
-                title: title,
-                description: description,
-                price: price,
-                createdAt: new Date()
+                title, description, price, videoUrl, notesUrl, createdAt: new Date()
             });
-            statusText.style.color = "green";
-            statusText.innerText = "✅ कोर्स सफलतापूर्वक अपलोड हो गया!";
-            form.reset();
+            status.style.color = "green";
+            status.innerText = "✅ कोर्स और वीडियो सफलतापूर्वक अपलोड हो गया!";
+            courseForm.reset();
         } catch (error) {
-            statusText.style.color = "red";
-            statusText.innerText = "❌ एरर: " + error.message;
+            status.style.color = "red";
+            status.innerText = "❌ एरर: " + error.message;
         }
     });
 </script>
