@@ -8,6 +8,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Link to our External CSS File -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Special Styling for Integrated Video Room */
+        .video-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 600px;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: #000;
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .live-instruction {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #334155;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 
@@ -37,14 +61,15 @@
         <div class="urdu-subtitle">لائیو کلاس روم</div>
     </section>
 
-    <!-- Live Content Section -->
+    <!-- Live Video Integration Section -->
     <div class="container">
-        <div class="live-card">
-            <h2 id="live-heading">आज की लाइव क्लास ज्वाइन करें</h2>
-            <div class="urdu-q">آج کی لائیو کلاس جوائن کریں</div>
-            <p id="live-desc">नीचे दिए गए बटन पर क्लिक करके आप सीधे मुफ्ती उज़ैर साहब की ज़ूम या ऑनलाइन लाइव क्लास से जुड़ सकते हैं।</p>
-            <br>
-            <a href="#" class="btn-live-action" id="btn-zoom">ज़ूम मीटिंग ज्वाइन करें</a>
+        <div class="live-instruction">
+            <p>मुफ्ती उज़ैर साहब की लाइव क्लास अब सीधे यहाँ देखें। अपना कैमरा और माइक ऑन करके क्लास में शामिल हों।</p>
+        </div>
+        
+        <!-- Embedded Live Video Room -->
+        <div class="video-container">
+            <iframe src="https://meet.jit.si/MuftiUzairAcademyLiveClass" allow="camera; microphone; fullscreen; display-capture; autoplay"></iframe>
         </div>
     </div>
 
