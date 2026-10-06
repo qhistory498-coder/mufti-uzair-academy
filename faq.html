@@ -6,146 +6,12 @@
     <title id="page-title">FAQ - Mufti Uzair Academy</title>
     <!-- Google Fonts for World-Class Look -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-        /* Header / Navbar */
-        header {
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-            color: white;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            flex-wrap: wrap;
-            gap: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            color: #fbbf24;
-            font-family: 'Amiri', serif;
-            letter-spacing: 0.5px;
-        }
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        nav a:hover, nav a.active {
-            color: #fbbf24;
-        }
-        /* Language Selector Dropdown */
-        .lang-select {
-            background-color: #334155;
-            color: #fbbf24;
-            border: 1px solid #475569;
-            padding: 8px 14px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-            transition: 0.3s;
-        }
-        .lang-select:hover {
-            border-color: #fbbf24;
-        }
-        .lang-select option {
-            background-color: #1e293b;
-            color: white;
-        }
-        /* Page Banner */
-        .page-banner {
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
-        .page-banner h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #ffffff;
-            font-weight: 700;
-        }
-        .page-banner .urdu-subtitle {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 26px;
-            color: #fbbf24;
-            direction: rtl;
-        }
-        /* FAQ Section Container */
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .faq-card {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
-            transition: 0.3s;
-        }
-        .faq-card:hover {
-            border-color: #fbbf24;
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
-        }
-        .faq-card h3 {
-            color: #0f172a;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-        .faq-card .urdu-q {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 16px;
-            color: #64748b;
-            direction: rtl;
-            margin-bottom: 12px;
-        }
-        .faq-card p {
-            color: #475569;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-        /* Footer */
-        footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 30px;
-            margin-top: 70px;
-            font-size: 15px;
-            border-top: 1px solid #1e293b;
-        }
-    </style>
+    <!-- Link to our External CSS File -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header / Navbar -->
     <header>
         <div class="logo">Mufti Uzair Academy</div>
         <div class="nav-container">
@@ -156,7 +22,7 @@
                 <a href="faq.html" class="active" style="color: #fbbf24;" id="nav-faq">सवाल-जवाब</a>
                 <a href="contact.html" id="nav-contact">सम्पर्क</a>
             </nav>
-            <!-- Language Switcher Dropdown -->
+            <!-- Language Selector Dropdown -->
             <select class="lang-select" onchange="changeLanguage(this.value)">
                 <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
                 <option value="en">🇬🇧 English</option>
@@ -167,28 +33,31 @@
 
     <!-- Page Banner -->
     <section class="page-banner">
-        <h1 id="banner-title">अक्सर पूछे जाने वाले सवाल (FAQ)</h1>
-        <div class="urdu-subtitle">عام پوچھے گئے سوالات</div>
+        <h1 id="banner-title">अक्सर पूछे जाने वाले सवाल</h1>
+        <div class="urdu-subtitle">سوال و جواب</div>
     </section>
 
     <!-- FAQ Content Section -->
     <div class="container">
-        <div class="faq-card">
-            <h3 id="q1-title">प्र 1: क्लास ज्वाइन करने का क्या तरीका है?</h3>
-            <div class="urdu-q">سوال 1: کلاس جوائن کرنے کا کیا طریقہ ہے؟</div>
-            <p id="q1-desc">आप सीधे संपर्क पेज पर जाकर व्हाट्सएप के जरिए या हमारे दिए गए नंबर पर رابطہ करके दाखिला ले सकते हैं।</p>
-        </div>
-
-        <div class="faq-card">
-            <h3 id="q2-title">प्र 2: क्या ऑनलाइन क्लास मोबाइल पर चल सकती है?</h3>
-            <div class="urdu-q">سوال 2: کیا آن لائن کلاس موبائل پر چل سکتی ہے؟</div>
-            <p id="q2-desc">जी हाँ, आप अपने स्मार्टफोन या कंप्यूटर दोनों पर आसानी से लाइव क्लासेज अटेंड कर सकते हैं।</p>
-        </div>
-
-        <div class="faq-card">
-            <h3 id="q3-title">प्र 3: क्या बच्चों और बड़ों दोनों के लिए अलग बैच हैं?</h3>
-            <div class="urdu-q">سوال 3: کیا بچوں اور بڑوں دونوں کے لیے الگ بیچ ہیں؟</div>
-            <p id="q3-desc">हाँ, बच्चों की हिफ्ज़ और तजवीद की कक्षाएं उनकी उम्र और समय के अनुसार अलग तय की जाती हैं।</p>
+        <div class="grid">
+            <!-- FAQ 1 -->
+            <div class="faq-card">
+                <h3>क्लास का समय क्या है?</h3>
+                <div class="urdu-q">کلاس کا وقت کیا ہے؟</div>
+                <p>छात्रों की सहूलियत के लिए सुबह और शाम दोनों समय बैच उपलब्ध हैं।</p>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-card">
+                <h3>क्या फीस ऑनलाइन जमा होगी?</h3>
+                <div class="urdu-q">کیا فیس آن لائن جمع ہوگی؟</div>
+                <p>जी हाँ, आप यूपीआई या बैंक ट्रांसफर के जरिए आसानी से फीस जमा कर सकते हैं।</p>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-card">
+                <h3>क्या बच्चों के लिए अलग बैच है?</h3>
+                <div class="urdu-q">کیا بچوں کے لیے الگ بیچ ہے؟</div>
+                <p>जी हाँ, बच्चों और बड़ों के लिए बिल्कुल अलग और सुरक्षित बैचेस का इंतजाम है।</p>
+            </div>
         </div>
     </div>
 
@@ -197,42 +66,7 @@
         <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript Smart Language Engine -->
-    <script>
-        function changeLanguage(lang) {
-            if (lang === 'ur') {
-                document.getElementById('nav-home').innerText = "ہوم";
-                document.getElementById('nav-courses').innerText = "کورسز";
-                document.getElementById('nav-live').innerText = "لائیو کلاس";
-                document.getElementById('nav-faq').innerText = "سوال و جواب";
-                document.getElementById('nav-contact').innerText = "رابطہ";
-                document.getElementById('banner-title').innerText = "عام پوچھے گئے سوالات (FAQ)";
-                document.getElementById('q1-title').innerText = "سوال 1: کلاس جوائن کرنے کا کیا طریقہ ہے؟";
-                document.getElementById('q1-desc').innerText = "آپ براہ راست رابطہ کے صفحے پر جا کر واٹس ایپ کے ذریعے یا دیے گئے نمبر پر رابطہ کر کے داخلہ لے سکتے ہیں۔";
-                document.getElementById('q2-title').innerText = "سوال 2: کیا آن لائن کلاس موبائل پر چل سکتی ہے؟";
-                document.getElementById('q2-desc').innerText = "جی ہاں، آپ اپنے اسمارٹ فون یا کمپیوٹر دونوں پر آسانی سے لائیو کلاسز اٹینڈ کر سکتے ہیں۔";
-                document.getElementById('q3-title').innerText = "سوال 3: کیا بچوں اور بڑوں دونوں کے لیے الگ بیچ ہیں؟";
-                document.getElementById('q3-desc').innerText = "ہاں، بچوں کی حفظ اور تجوید کی کلاسیں ان کی عمر اور وقت کے مطابق الگ طے کی جاتی ہیں۔";
-                document.getElementById('footer-text').innerHTML = "&copy; 2026 مفتی عزیر آن لائن اکیڈمی۔ جملہ حقوق محفوظ ہیں۔";
-            } else if (lang === 'en') {
-                document.getElementById('nav-home').innerText = "Home";
-                document.getElementById('nav-courses').innerText = "Courses";
-                document.getElementById('nav-live').innerText = "Live Class";
-                document.getElementById('nav-faq').innerText = "FAQ";
-                document.getElementById('nav-contact').innerText = "Contact";
-                document.getElementById('banner-title').innerText = "Frequently Asked Questions (FAQ)";
-                document.getElementById('q1-title').innerText = "Q 1: What is the process to join the class?";
-                document.getElementById('q1-desc').innerText = "You can enroll by contacting us directly through WhatsApp or via the phone number provided on the contact page.";
-                document.getElementById('q2-title').innerText = "Q 2: Can online classes run on a mobile phone?";
-                document.getElementById('q2-desc').innerText = "Yes, you can easily attend live classes on both your smartphone and computer.";
-                document.getElementById('q3-title').innerText = "Q 3: Are there separate batches for children and adults?";
-                document.getElementById('q3-desc').innerText = "Yes, children's Hifz and Tajweed classes are scheduled separately according to their age and convenience.";
-                document.getElementById('footer-text').innerHTML = "&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.";
-            } else {
-                location.reload(); // Reset back to default Hindi
-            }
-        }
-    </script>
-
+    <!-- Link to our External JavaScript File -->
+    <script src="script.js"></script>
 </body>
 </html>
