@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मुफ्ती उज़ैर एकेडमी - एडमिन कोर्स अपलोड</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 500px; background: #fff; padding: 25px; margin: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { color: #1e3c72; text-align: center; }
+        label { font-weight: bold; display: block; margin-top: 15px; color: #333; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { background: #28a745; color: white; border: none; padding: 12px; width: 100%; margin-top: 20px; font-size: 16px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #218838; }
+        #status { text-align: center; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📚 नया कोर्स अपलोड करें</h2>
+    <form id="courseForm">
+        <label>कोर्स का नाम:</label>
+        <input type="text" id="courseTitle" required placeholder="जैसे: तर्जुमा-ए-कुरान कोर्स">
+
+        <label>कोर्स का विवरण (Details):</label>
+        <textarea id="courseDesc" rows="4" required placeholder="कोर्स के बारे में यहाँ लिखें..."></textarea>
+
+        <label>फीस / कीमत (रु में - Paid):</label>
+        <input type="text" id="coursePrice" required placeholder="जैसे: ₹499">
+
+        <button type="submit">कोर्स लाइव करें (Publish)</button>
+    </form>
+    <p id="status"></p>
+</div>
+
+<!-- Firebase SDKs -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // आपकी Firebase डिजिटल चाबी (Config)
+    const firebaseConfig = {
+        apiKey: "AIzaSyA4h47xTukc6Jm7gymW4pQeZmUjbLRPF8",
+        authDomain: "mufti-uzair-academy.firebaseapp.com",
+        projectId: "mufti-uzair-academy",
+        storageBucket: "mufti-uzair-academy.firebasestorage.app",
+        messagingSenderId: "569334821978",
+        appId: "1:569334821978:web:f0054458844d4a83843d63"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById('courseForm');
+    const statusText = document.getElementById('status');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusText.style.color = "blue";
+        statusText.innerText = "कोर्स अपलोड हो रहा है...";
+
+        const title = document.getElementById('courseTitle').value;
+        const description = document.getElementById('courseDesc').value;
+        const price = document.getElementById('coursePrice').value;
+
+        try {
+            await addDoc(collection(db, "courses"), {
+                title: title,
+                description: description,
+                price: price,
+                createdAt: new Date()
+            });
+            statusText.style.color = "green";
+            statusText.innerText = "✅ कोर्स सफलतापूर्वक अपलोड हो गया!";
+            form.reset();
+        } catch (error) {
+            statusText.style.color = "red";
+            statusText.innerText = "❌ एरर: " + error.message;
+        }
+    });
+</script>
+
+</body>
+</html>
