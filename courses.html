@@ -8,6 +8,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Link to our External CSS File -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional Styling for Detailed Course Syllabus */
+        .syllabus-box {
+            background: #f8fafc;
+            border-left: 4px solid #fbbf24;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+        .syllabus-box h4 {
+            color: #0f172a;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .syllabus-box ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #475569;
+            font-size: 14px;
+        }
+        .syllabus-box li {
+            margin-bottom: 4px;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,34 +58,66 @@
 
     <!-- Page Banner -->
     <section class="page-banner">
-        <h1 id="banner-title">हमारे तमाम कोर्सेज</h1>
-        <div class="urdu-subtitle">تمام کورسز کی فہرست</div>
+        <h1 id="banner-title">हमारे कोर्सेज की फेहरिस्त</h1>
+        <div class="urdu-subtitle">تمام کورسز की لسٹ</div>
     </section>
 
-    <!-- Courses Content Section -->
+    <!-- Courses Content Section with Detailed Syllabus -->
     <div class="container">
         <div class="grid">
             <!-- Course 1 -->
             <div class="card">
                 <h3 id="c1-title">हिफ्ज़-ए-कुरआन</h3>
-                <div class="urdu-text" id="c1-urdu">حفظ القرآن</div>
-                <p id="c1-desc">ماہر قاری کی نگرانی میں تجوید और सही मखारिज के साथ कुरआन मुकम्मल हिफ्ज़ करने का कोर्स।</p>
+                <div class="urdu-q" id="c1-urdu">حفظ القرآن</div>
+                <p id="c1-desc">बच्चों और बड़ों के लिए मज़बूत हिफ्ज़ की निगरानी और सही मखारिज के साथ मुकम्मल कुरआन हिफ्ज़ करने की कोर्स।</p>
+                
+                <!-- Detailed Syllabus Box -->
+                <div class="syllabus-box">
+                    <h4>कोर्स की मुख्य बातें:</h4>
+                    <ul>
+                        <li>रोजाना सबक और पोर की विशेष निगरानी</li>
+                        <li>तजवीद के नियमों का पक्का अभ्यास</li>
+                        <li>विशेष ऑनलाइन मौखिक इम्तिहान</li>
+                    </ul>
+                </div>
                 <br>
                 <a href="contact.html" class="btn-enroll" id="c1-btn">दाखिला लें</a>
             </div>
+
             <!-- Course 2 -->
             <div class="card">
-                <h3 id="c2-title">तर्जुमा व तफ़सीर</h3>
-                <div class="urdu-text" id="c2-urdu">ترجمہ و تفسیر</div>
-                <p id="c2-desc">अल्लाह के कलाम को आसान तर्जुमा और बेहतरीन तफ़सीर के साथ रूह में उतारने की क्लास।</p>
+                <h3 id="c2-title">तर्जुमा व तفسीर</h3>
+                <div class="urdu-q" id="c2-urdu">ترجمہ و تفسیر</div>
+                <p id="c2-desc">कुरआन मजीद की आयतों को आसान फहम तर्जुमा और बेहतरीन तफसीर के साथ रूह में उतरने की तालीम।</p>
+                
+                <!-- Detailed Syllabus Box -->
+                <div class="syllabus-box">
+                    <h4>कोर्स की मुख्य बातें:</h4>
+                    <ul>
+                        <li>शब्द-दर-शब्द कुरआनी शब्दों का अर्थ</li>
+                        <li>सान्दर्भिक और ऐतिहासिक पृष्ठभूमि</li>
+                        <li>रोजमर्रा की जिंदगी से आयतों का जुड़ाव</li>
+                    </ul>
+                </div>
                 <br>
                 <a href="contact.html" class="btn-enroll" id="c2-btn">दाखिला लें</a>
             </div>
+
             <!-- Course 3 -->
             <div class="card">
                 <h3 id="c3-title">बुनियादी दीन व मसाइल</h3>
-                <div class="urdu-text" id="c3-urdu">بنیادی دین و مسائل</div>
-                <p id="c3-desc">नमाज़, रोज़ा, तहारत और रोज़मर्रा की जिंदगी के जरूरी इस्लामी मसाइल की तालीम।</p>
+                <div class="urdu-q" id="c3-urdu">बुनियादी दीन व मसाइल</div>
+                <p id="c3-desc">नमाज़, रोज़ा, तहारत और रोज़मर्रा की जिंदगी के ज़रूरी इस्लामी मसाइल और एहकाम की तालीम।</p>
+                
+                <!-- Detailed Syllabus Box -->
+                <div class="syllabus-box">
+                    <h4>कोर्स की मुख्य बातें:</h4>
+                    <ul>
+                        <li>तहारत और वज़ू-गुस्ल का प्रैक्टिकल तरीका</li>
+                        <li>नमाज़ के ज़रूरी मसाइल और दुआएँ</li>
+                        <li>हलाल-हराम और इस्लामी तहज़ीब</li>
+                    </ul>
+                </div>
                 <br>
                 <a href="contact.html" class="btn-enroll" id="c3-btn">दाखिला लें</a>
             </div>
@@ -76,3 +133,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
