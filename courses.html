@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Mufti Uzair Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0b3c5d, #1d2731);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+        /* Page Header Banner */
+        .page-banner {
+            background: linear-gradient(135deg, #0b3c5d, #328cc1);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .page-banner h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .page-banner p {
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+        /* Courses Container */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .course-content {
+            padding: 25px;
+        }
+        .course-content h3 {
+            color: #0b3c5d;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .course-content p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .course-footer {
+            padding: 15px 25px;
+            background-color: #fafafa;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price {
+            font-weight: bold;
+            color: #0b3c5d;
+            font-size: 16px;
+        }
+        .enroll-btn {
+            background-color: #ffcc00;
+            color: #0b3c5d;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .enroll-btn:hover {
+            opacity: 0.9;
+        }
+        /* Footer */
+        footer {
+            background-color: #1d2731;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Mufti Uzair Academy</div>
+       <nav>
+    <a href="index.html">होम</a>
+    <a href="courses.html" style="color: #ffcc00;">कोर्सेज</a>
+    <a href="#">लाइव क्लास</a>
+    <a href="#" style="background: #ffcc00; color: #0b3c5d; padding: 8px 15px; border-radius: 20px;">लॉगिन</a>
+       </nav>
+      
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1>मुफ्ती उज़ैर साहब के विशेष ऑनलाइन कोर्सेज</h1>
+        <p>अपनी और अपने बच्चों की दीनी तालीम को बेहतरीन और आसान बनाएं</p>
+    </section>
+
+    <!-- Courses Grid -->
+    <div class="container">
+        <div class="grid">
+            
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>हिफ्ज़-ए-कुरान प्रोग्राम</h3>
+                    <p>बच्चों और नौजवानों के लिए मुफ्ती उज़ैर साहब की व्यक्तिगत निगरानी में कुरान याद करने का मुकम्मल कोर्स। रोजाना मश्क और ताजवीद पर विशेष ध्यान।</p>
+                </div>
+                <div class="course-footer">
+                    <span class="price">लाइव क्लासेज</span>
+                    <a href="#" class="enroll-btn">जॉइन करें</a>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>ताजवीद व क़ारी कोर्स</h3>
+                    <p>कुरान मजीद को मखार्ज और सही लहजे के साथ पढ़ने का तरीका सीखें। हर हर्फ़ की सही अदायगी की विशेष ट्रेनिंग।</p>
+                </div>
+                <div class="course-footer">
+                    <span class="price">स्पेशल बैच</span>
+                    <a href="#" class="enroll-btn">जॉइन करें</a>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>तर्जुमा व तफसीर-ए-कुरान</h3>
+                    <p>अल्लाह के कलाम को आसान हिंदी और तर्जुमा के साथ समझें। आयात की शान-ए-नुकूल और गहराई से तफसीर।</p>
+                </div>
+                <div class="course-footer">
+                    <span class="price">साप्ताहिक क्लास</span>
+                    <a href="#" class="enroll-btn">जॉइन करें</a>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <div class="course-content">
+                    <h3>बुनियादी दीन व ज़रूरी मसाइल</h3>
+                    <p>روزمرہ کے احکام، طہارت، نماز، روزہ اور اسلامی اخلاق و آداب کا جامع کورس۔</p>
+                </div>
+                <div class="course-footer">
+                    <span class="price">शुरुआती कोर्स</span>
+                    <a href="#" class="enroll-btn">जॉइन करें</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
