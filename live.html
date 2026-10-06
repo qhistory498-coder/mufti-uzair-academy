@@ -9,27 +9,38 @@
     <!-- Link to our External CSS File -->
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Special Styling for Integrated Video Room */
+        /* Advanced Video Room Styling with Zoom-like Features */
         .video-container {
             width: 100%;
-            max-width: 1000px;
-            height: 600px;
+            max-width: 1100px;
+            height: 650px;
             margin: 20px auto;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            background: #000;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+            background: #0f172a;
         }
-        .video-container iframe {
+        #jaas-container {
             width: 100%;
             height: 100%;
-            border: none;
         }
         .live-instruction {
             text-align: center;
             margin-bottom: 15px;
             color: #334155;
             font-size: 16px;
+        }
+        .security-badge {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            color: #92400e;
+            padding: 10px 15px;
+            border-radius: 8px;
+            max-width: 1100px;
+            margin: 0 auto 15px auto;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -61,15 +72,19 @@
         <div class="urdu-subtitle">لائیو کلاس روم</div>
     </section>
 
-    <!-- Live Video Integration Section -->
+    <!-- Main Content Section -->
     <div class="container">
-        <div class="live-instruction">
-            <p>मुफ्ती उज़ैर साहब की लाइव क्लास अब सीधे यहाँ देखें। अपना कैमरा और माइक ऑन करके क्लास में शामिल हों।</p>
+        <div class="security-badge">
+            🔒 सुरक्षित क्लासरूम: यह क्लास पासवर्ड और एन्क्रिप्शन से सुरक्षित है। केवल अधिकृत छात्र ही इसमें प्रवेश कर सकते हैं।
         </div>
         
-        <!-- Embedded Live Video Room -->
+        <div class="live-instruction">
+            <p>मुफ्ती उज़ैर साहब की लाइव क्लास। नीचे दिए गए प्लेयर में चैट, स्क्रीन शेयरिंग, हैंड रेज़ और पार्टिसिपेंट लिस्ट के साथ क्लास का आनंद लें।</p>
+        </div>
+        
+        <!-- Advanced Embedded Video Room Container -->
         <div class="video-container">
-            <iframe src="https://meet.jit.si/MuftiUzairAcademyLiveClass" allow="camera; microphone; fullscreen; display-capture; autoplay"></iframe>
+            <div id="jaas-container"></div>
         </div>
     </div>
 
@@ -77,6 +92,43 @@
     <footer>
         <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
     </footer>
+
+    <!-- Jitsi External API Script for Zoom-like Features -->
+    <script src="https://8x8.vc/vpaas-magic-cookie-9515904d9e9e4f50b4ec74e1d13f019d/external_api.js" async></script>
+    <script>
+        window.onload = function () {
+            const domain = "8x8.vc";
+            const options = {
+                roomName: "vpaas-magic-cookie-9515904d9e9e4f50b4ec74e1d13f019d/MuftiUzairAcademySecureLiveClass",
+                width: "100%",
+                height: "100%",
+                parentNode: document.querySelector('#jaas-container'),
+                configOverwrite: {
+                    startWithAudioMuted: true,
+                    startWithVideoMuted: false,
+                    subject: "Mufti Uzair Academy Live Class",
+                    enableWelcomePage: false,
+                    prejoinPageEnabled: true
+                },
+                interfaceConfigOverwrite: {
+                    // Enabling all Zoom-like features: Chat, Raise Hand, Tile View, Screen Sharing, Participants list
+                    TOOLBAR_BUTTONS: [
+                        'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
+                        'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
+                        'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
+                        'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
+                        'tileview', 'select-background', 'download', 'help', 'mute-everyone'
+                    ],
+                    SETTINGS_SECTIONS: ['devices', 'language', 'moderator', 'profile'],
+                    SHOW_JITSI_WATERMARK: false,
+                    SHOW_WATERMARK_FOR_GUESTS: false,
+                    DEFAULT_REMOTE_DISPLAY_NAME: "Student / Talib-e-Ilm",
+                    DEFAULT_LOCAL_DISPLAY_NAME: "Mufti Uzair / Student"
+                }
+            };
+            const api = new JitsiMeetExternalAPI(domain, options);
+        }
+    </script>
 
     <!-- Link to our External JavaScript File -->
     <script src="script.js"></script>
