@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mufti Uzair Online Academy - मुफ्ती उज़ैर ऑनलाइन एकेडमी</title>
+    <title id="page-title">Mufti Uzair Online Academy - मुफ्ती उज़ैर ऑनलाइन एकेडमी</title>
     <!-- Google Fonts for World-Class Look -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -238,7 +238,7 @@
 <body>
 
     <!-- Top Notice Bar -->
-    <div class="notice-bar">
+    <div class="notice-bar" id="notice-text">
         📢 मुफ्ती उज़ैर ऑनलाइन एकेडमी में नए सत्र के लिए दाखिले शुरू हैं! आज ही संपर्क करें।
     </div>
 
@@ -247,13 +247,13 @@
         <div class="logo">Mufti Uzair Academy</div>
         <div class="nav-container">
             <nav>
-                <a href="index.html" class="active" style="color: #fbbf24;">होम</a>
-                <a href="courses.html">कोर्सेज</a>
-                <a href="live.html">लाइव क्लास</a>
-                <a href="faq.html">सवाल-जवाब</a>
-                <a href="contact.html">सम्पर्क</a>
+                <a href="index.html" class="active" style="color: #fbbf24;" id="nav-home">होम</a>
+                <a href="courses.html" id="nav-courses">कोर्सेज</a>
+                <a href="live.html" id="nav-live">लाइव क्लास</a>
+                <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
+                <a href="contact.html" id="nav-contact">सम्पर्क</a>
             </nav>
-            <!-- Language Switcher Dropdown -->
+            <!-- Language Selector Dropdown -->
             <select class="lang-select" onchange="changeLanguage(this.value)">
                 <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
                 <option value="en">🇬🇧 English</option>
@@ -264,51 +264,51 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>मुफ्ती उज़ैर साहब के साथ दीन और कुरान की तालीम</h1>
-        <div class="urdu-title">مفتی عزیر صاحب کے साथ दीन और قرآن کی تعلیم</div>
-        <p>घर बैठे आधुनिक तकनीक के साथ लाइव क्लासेज और बेहतरीन कोर्सेज से जुड़ें।</p>
+        <h1 id="hero-title">मुफ्ती उज़ैर साहब के साथ दीन और कुरान की तालीम</h1>
+        <div class="urdu-title">مفتی عزیر صاحب के साथ दीन और قرآن की تعلیم</div>
+        <p id="hero-desc">घर बैठे आधुनिक तकनीक के साथ लाइव क्लासेज और बेहतरीन कोर्सेज से जुड़ें।</p>
         <div class="btn-container">
-            <a href="live.html" class="btn">लाइव क्लास ज्वाइन करें</a>
-            <a href="courses.html" class="btn btn-outline">कोर्सेज देखें</a>
+            <a href="live.html" class="btn" id="btn-live">लाइव क्लास ज्वाइन करें</a>
+            <a href="courses.html" class="btn btn-outline" id="btn-courses">कोर्सेज देखें</a>
         </div>
     </section>
 
     <!-- Courses Section -->
     <div class="container">
-        <h2 class="section-title">हमारे खास कोर्सेज / ہمارے خاص کورسز</h2>
+        <h2 class="section-title" id="sec-courses-title">हमारे खास कोर्सेज / हमारे खास कोर्सेज</h2>
         <div class="grid">
             <div class="card">
-                <h3>हिफ्ज़-ए-कुरान</h3>
+                <h3 id="course-1-title">हिफ्ज़-ए-कुरान</h3>
                 <div class="urdu-text">حفظ القرآن</div>
-                <p>बच्चों और बड़ों के लिए मुफ्ती साहब की देखरेख में कुरान हिफ्ज़ करने का विशेष कोर्स।</p>
+                <p id="course-1-desc">बच्चों और बड़ों के लिए मुफ्ती साहब की देखरेख में कुरान हिफ्ज़ करने का विशेष कोर्स।</p>
             </div>
             <div class="card">
-                <h3>तर्जुमा व तफसीर</h3>
+                <h3 id="course-2-title">तर्जुमा व तफसीर</h3>
                 <div class="urdu-text">ترجمہ و تفسیر</div>
-                <p>कुरान मजीद को आसान हिंदी और तर्जुमा के साथ गहराई से समझें।</p>
+                <p id="course-2-desc">कुरान मजीद को आसान हिंदी और तर्जुमा के साथ गहराई से समझें।</p>
             </div>
             <div class="card">
-                <h3>बुनियादी दीन व मसाइल</h3>
+                <h3 id="course-3-title">बुनियादी दीन व मसाइल</h3>
                 <div class="urdu-text">بنیادی دین و مسائل</div>
-                <p>रोजमर्रा की जिंदगी के जरूरी मसाइल और اسلامی تعلیمات का کورس।</p>
+                <p id="course-3-desc">रोजमर्रा की जिंदगी के जरूरी मसाइल और اسلامی تعلیمات का کورس।</p>
             </div>
         </div>
 
         <!-- Why Choose Us Section -->
         <div class="features-box">
-            <h2 class="section-title" style="margin-bottom: 15px;">हमें क्यों चुनें? / کیوں منتخب کریں؟</h2>
+            <h2 class="section-title" style="margin-bottom: 15px;" id="sec-why-title">हमें क्यों चुनें? / کیوں منتخب کریں؟</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <h4>🎯 व्यक्तिगत निगरानी</h4>
-                    <p>हर छात्र पर मुफ्ती साहब की सीधी नजर और मश्क।</p>
+                    <h4 id="feat-1-title">🎯 व्यक्तिगत निगरानी</h4>
+                    <p id="feat-1-desc">हर छात्र पर मुफ्ती साहब की सीधी नजर और मश्क।</p>
                 </div>
                 <div class="feature-item">
-                    <h4>💻 आसान लाइव क्लास</h4>
-                    <p>घर बैठे मोबाइल पर ज़ूम या लाइव सेशन की सुविधा।</p>
+                    <h4 id="feat-2-title">💻 आसान लाइव क्लास</h4>
+                    <p id="feat-2-desc">घर बैठे मोबाइल पर ज़ूम या लाइव सेशन की सुविधा।</p>
                 </div>
                 <div class="feature-item">
-                    <h4>📜 शुद्ध तजवीद</h4>
-                    <p>मखार्ज और सही लहजे के साथ कुरान की तालीम।</p>
+                    <h4 id="feat-3-title">📜 शुद्ध तजवीद</h4>
+                    <p id="feat-3-desc">मखार्ज और सही लहजे के साथ कुरान की तालीम।</p>
                 </div>
             </div>
         </div>
@@ -316,17 +316,66 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
+        <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript Smart Language Engine -->
     <script>
         function changeLanguage(lang) {
-            if(lang === 'ur') {
-                alert('اردو زبان का انتخاب کر लिया गया है। (Urdu mode selected)');
-            } else if(lang === 'en') {
-                alert('English language selected.');
+            if (lang === 'ur') {
+                document.getElementById('notice-text').innerText = "📢 مفتی عزیر آن لائن اکیڈمی میں نئے سیشن کے لیے داخلے جاری ہیں! آج ہی رابطہ کریں۔";
+                document.getElementById('nav-home').innerText = "ہوم";
+                document.getElementById('nav-courses').innerText = "کورسز";
+                document.getElementById('nav-live').innerText = "لائیو کلاس";
+                document.getElementById('nav-faq').innerText = "سوال و جواب";
+                document.getElementById('nav-contact').innerText = "رابطہ";
+                document.getElementById('hero-title').innerText = "مفتی عزیر صاحب کے ساتھ دین اور قرآن کی تعلیم";
+                document.getElementById('hero-desc').innerText = "گھر بیٹھے جدید ٹیکنالوجی کے ساتھ لائیو کلاسز اور بہترین کورسز سے جڑیں۔";
+                document.getElementById('btn-live').innerText = "لائیو کلاس جوائن کریں";
+                document.getElementById('btn-courses').innerText = "کورسز دیکھیں";
+                document.getElementById('sec-courses-title').innerText = "ہمارے خاص کورسز";
+                document.getElementById('course-1-title').innerText = "حفظ القرآن";
+                document.getElementById('course-1-desc').innerText = "بچوں اور بڑوں کے لیے مفتی صاحب کی نگرانی میں قرآن حفظ کرنے کا خصوصی کورس۔";
+                document.getElementById('course-2-title').innerText = "ترجمہ و تفسیر";
+                document.getElementById('course-2-desc').innerText = "قرآن مجید کو آسان فہم ترجمہ کے ساتھ گہرائی سے سمجھیں۔";
+                document.getElementById('course-3-title').innerText = "بنیادی دین و مسائل";
+                document.getElementById('course-3-desc').innerText = "روزمرہ زندگی کے ضروری مسائل اور اسلامی تعلیمات کا کورس۔";
+                document.getElementById('sec-why-title').innerText = "ہمیں کیوں منتخب کریں؟";
+                document.getElementById('feat-1-title').innerText = "🎯 ذاتی نگرانی";
+                document.getElementById('feat-1-desc').innerText = "ہر طالب علم پر مفتی صاحب کی براہ راست نظر۔";
+                document.getElementById('feat-2-title').innerText = "💻 آسان لائیو کلاس";
+                document.getElementById('feat-2-desc').innerText = "گھر بیٹھے موبائل پر لائیو سیشن کی سہولت۔";
+                document.getElementById('feat-3-title').innerText = "📜 خالص تجوید";
+                document.getElementById('feat-3-desc').innerText = "م مخارج اور درست لہجے کے ساتھ قرآن کی تعلیم۔";
+                document.getElementById('footer-text').innerHTML = "&copy; 2026 مفتی عزیر آن لائن اکیڈمی۔ جملہ حقوق محفوظ ہیں۔";
+            } else if (lang === 'en') {
+                document.getElementById('notice-text').innerText = "📢 Admissions are open for the new session at Mufti Uzair Online Academy! Contact us today.";
+                document.getElementById('nav-home').innerText = "Home";
+                document.getElementById('nav-courses').innerText = "Courses";
+                document.getElementById('nav-live').innerText = "Live Class";
+                document.getElementById('nav-faq').innerText = "FAQ";
+                document.getElementById('nav-contact').innerText = "Contact";
+                document.getElementById('hero-title').innerText = "Learn Deen & Quran with Mufti Uzair";
+                document.getElementById('hero-desc').innerText = "Connect with live classes and premium courses from home using modern technology.";
+                document.getElementById('btn-live').innerText = "Join Live Class";
+                document.getElementById('btn-courses').innerText = "View Courses";
+                document.getElementById('sec-courses-title').innerText = "Our Special Courses";
+                document.getElementById('course-1-title').innerText = "Hifz-e-Quran";
+                document.getElementById('course-1-desc').innerText = "Special course for memorizing the Quran under the direct guidance of Mufti Uzair.";
+                document.getElementById('course-2-title').innerText = "Tarjuma & Tafseer";
+                document.getElementById('course-2-desc').innerText = "Understand the Quran deeply with easy translation and explanation.";
+                document.getElementById('course-3-title').innerText = "Basic Deen & Masail";
+                document.getElementById('course-3-desc').innerText = "Essential daily life Islamic teachings and rulings course.";
+                document.getElementById('sec-why-title').innerText = "Why Choose Us?";
+                document.getElementById('feat-1-title').innerText = "🎯 Personal Attention";
+                document.getElementById('feat-1-desc').innerText = "Direct supervision and guidance for every student.";
+                document.getElementById('feat-2-title').innerText = "💻 Easy Live Classes";
+                document.getElementById('feat-2-desc').innerText = "Live sessions directly on your mobile from home.";
+                document.getElementById('feat-3-title').innerText = "📜 Pure Tajweed";
+                document.getElementById('feat-3-desc').innerText = "Quran education with correct pronunciation and accent.";
+                document.getElementById('footer-text').innerHTML = "&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.";
             } else {
-                alert('हिंदी भाषा चुनी गई है।');
+                location.reload(); // Reset back to default Hindi
             }
         }
     </script>
