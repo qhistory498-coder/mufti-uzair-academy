@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mufti Uzair Online Academy - मुफ्ती उज़ैर ऑनलाइन एकेडमी</title>
-    <!-- Google Fonts for Premium Look -->
+    <!-- Google Fonts for World-Class Look -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,35 +14,40 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: #f8fafc;
+            color: #1e293b;
         }
-        /* Top Notice Bar */
+        /* Top Notice Bar with Glow */
         .notice-bar {
-            background-color: #ffcc00;
-            color: #0b3c5d;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            color: #0f172a;
             text-align: center;
-            padding: 8px;
+            padding: 10px;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
         }
-        /* Header */
+        /* Header / Navbar */
         header {
-            background: linear-gradient(135deg, #0b3c5d, #1d2731);
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             flex-wrap: wrap;
             gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
-            color: #ffcc00;
+            color: #fbbf24;
             font-family: 'Amiri', serif;
+            letter-spacing: 0.5px;
         }
         .nav-container {
             display: flex;
@@ -51,151 +56,182 @@
             flex-wrap: wrap;
         }
         nav a {
-            color: white;
+            color: #cbd5e1;
             text-decoration: none;
             font-size: 16px;
+            font-weight: 600;
             transition: 0.3s;
         }
-        nav a:hover {
-            color: #ffcc00;
+        nav a:hover, nav a.active {
+            color: #fbbf24;
         }
         /* Language Selector Dropdown */
         .lang-select {
-            background-color: #1d2731;
-            color: #ffcc00;
-            border: 1px solid #ffcc00;
-            padding: 6px 12px;
-            border-radius: 20px;
+            background-color: #334155;
+            color: #fbbf24;
+            border: 1px solid #475569;
+            padding: 8px 14px;
+            border-radius: 25px;
             font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
             outline: none;
+            transition: 0.3s;
+        }
+        .lang-select:hover {
+            border-color: #fbbf24;
         }
         .lang-select option {
-            background-color: #0b3c5d;
+            background-color: #1e293b;
             color: white;
         }
-        /* Hero Section */
+        /* Hero Section (Grand Entrance) */
         .hero {
-            background: linear-gradient(135deg, #0b3c5d, #328cc1);
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
             color: white;
             text-align: center;
-            padding: 70px 20px;
+            padding: 90px 20px;
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.2);
         }
         .hero h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
+            font-size: 38px;
+            margin-bottom: 12px;
             color: #ffffff;
+            font-weight: 700;
         }
         .hero .urdu-title {
             font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 28px;
-            color: #ffcc00;
-            margin-bottom: 15px;
+            font-size: 30px;
+            color: #fbbf24;
+            margin-bottom: 20px;
             direction: rtl;
         }
         .hero p {
-            font-size: 17px;
-            margin-bottom: 30px;
-            color: #e0e0e0;
+            font-size: 18px;
+            margin-bottom: 35px;
+            color: #94a3b8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .btn-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         .btn {
-            background-color: #ffcc00;
-            color: #0b3c5d;
-            padding: 12px 25px;
+            background-color: #fbbf24;
+            color: #0f172a;
+            padding: 14px 30px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: 0.3s;
+            font-weight: 700;
+            font-size: 16px;
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.3);
+            transition: all 0.3s ease;
         }
         .btn-outline {
             background-color: transparent;
             color: white;
-            border: 2px solid white;
+            border: 2px solid #fbbf24;
+            box-shadow: none;
         }
         .btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+            background-color: #f59e0b;
+            color: white;
         }
-        /* Features / Why Choose Us Section */
+        .btn-outline:hover {
+            background-color: #fbbf24;
+            color: #0f172a;
+        }
+        /* Courses & Features Container */
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
+            max-width: 1150px;
+            margin: 50px auto;
             padding: 0 20px;
         }
         .section-title {
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: #0b3c5d;
+            font-size: 30px;
+            margin-bottom: 40px;
+            color: #0f172a;
+            font-weight: 700;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
+        /* Premium Glass Cards */
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+            border-color: #fbbf24;
         }
         .card h3 {
-            color: #0b3c5d;
-            margin-bottom: 10px;
-            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 12px;
+            font-size: 22px;
         }
         .card .urdu-text {
             font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 15px;
-            color: #555;
+            font-size: 16px;
+            color: #64748b;
             direction: rtl;
-            margin-top: 5px;
+            margin-bottom: 15px;
         }
-        /* Why Choose Us Highlight Box */
+        .card p {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        /* Why Choose Us Section */
         .features-box {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #ffffff, #f1f5f9);
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
         }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .feature-item h4 {
-            color: #0b3c5d;
-            margin-bottom: 8px;
-            font-size: 18px;
+            color: #0f172a;
+            margin-bottom: 10px;
+            font-size: 20px;
         }
         .feature-item p {
-            font-size: 14px;
-            color: #666;
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.5;
         }
         /* Footer */
         footer {
-            background-color: #1d2731;
-            color: white;
+            background-color: #0f172a;
+            color: #94a3b8;
             text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            font-size: 14px;
+            padding: 30px;
+            margin-top: 70px;
+            font-size: 15px;
+            border-top: 1px solid #1e293b;
         }
     </style>
 </head>
@@ -211,9 +247,10 @@
         <div class="logo">Mufti Uzair Academy</div>
         <div class="nav-container">
             <nav>
-                <a href="index.html" style="color: #ffcc00;">होम</a>
+                <a href="index.html" class="active" style="color: #fbbf24;">होम</a>
                 <a href="courses.html">कोर्सेज</a>
                 <a href="live.html">लाइव क्लास</a>
+                <a href="faq.html">सवाल-जवाब</a>
                 <a href="contact.html">सम्पर्क</a>
             </nav>
             <!-- Language Switcher Dropdown -->
@@ -228,7 +265,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>मुफ्ती उज़ैर साहब के साथ दीन और कुरान की तालीम</h1>
-        <div class="urdu-title">مفتی عزیر صاحب کے ساتھ دین اور قرآن کی تعلیم</div>
+        <div class="urdu-title">مفتی عزیر صاحب کے साथ दीन और قرآن کی تعلیم</div>
         <p>घर बैठे आधुनिक तकनीक के साथ लाइव क्लासेज और बेहतरीन कोर्सेज से जुड़ें।</p>
         <div class="btn-container">
             <a href="live.html" class="btn">लाइव क्लास ज्वाइन करें</a>
@@ -257,9 +294,9 @@
             </div>
         </div>
 
-        <!-- Why Choose Us Section (Added Value) -->
+        <!-- Why Choose Us Section -->
         <div class="features-box">
-            <h2 class="section-title" style="margin-bottom: 10px;">हमें क्यों चुनें? / کیوں منتخب کریں؟</h2>
+            <h2 class="section-title" style="margin-bottom: 15px;">हमें क्यों चुनें? / کیوں منتخب کریں؟</h2>
             <div class="features-grid">
                 <div class="feature-item">
                     <h4>🎯 व्यक्तिगत निगरानी</h4>
@@ -285,7 +322,7 @@
     <script>
         function changeLanguage(lang) {
             if(lang === 'ur') {
-                alert('اردو زبان کا انتخاب کر लिया गया है। (Urdu mode selected)');
+                alert('اردو زبان का انتخاب کر लिया गया है। (Urdu mode selected)');
             } else if(lang === 'en') {
                 alert('English language selected.');
             } else {
