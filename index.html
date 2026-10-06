@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mufti Uzair Online Academy</title>
+    <title>Mufti Uzair Online Academy - मुफ्ती उज़ैर ऑनलाइन एकेडमी</title>
+    <!-- Google Fonts for Premium Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,6 +17,15 @@
             background-color: #f4f7f6;
             color: #333;
         }
+        /* Top Notice Bar */
+        .notice-bar {
+            background-color: #ffcc00;
+            color: #0b3c5d;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
         /* Header */
         header {
             background: linear-gradient(135deg, #0b3c5d, #1d2731);
@@ -24,36 +35,66 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 15px;
         }
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: #ffcc00;
+            font-family: 'Amiri', serif;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
             font-size: 16px;
             transition: 0.3s;
         }
         nav a:hover {
             color: #ffcc00;
         }
+        /* Language Selector Dropdown */
+        .lang-select {
+            background-color: #1d2731;
+            color: #ffcc00;
+            border: 1px solid #ffcc00;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+        .lang-select option {
+            background-color: #0b3c5d;
+            color: white;
+        }
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #0b3c5d, #328cc1);
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 70px 20px;
         }
         .hero h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
+            font-size: 34px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
+        .hero .urdu-title {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 28px;
+            color: #ffcc00;
+            margin-bottom: 15px;
+            direction: rtl;
+        }
         .hero p {
-            font-size: 18px;
+            font-size: 17px;
             margin-bottom: 30px;
             color: #e0e0e0;
         }
@@ -61,6 +102,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .btn {
             background-color: #ffcc00;
@@ -81,7 +123,7 @@
             transform: translateY(-2px);
             opacity: 0.9;
         }
-        /* Features Section */
+        /* Features / Why Choose Us Section */
         .container {
             max-width: 1100px;
             margin: 40px auto;
@@ -113,6 +155,38 @@
         .card h3 {
             color: #0b3c5d;
             margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .card .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 15px;
+            color: #555;
+            direction: rtl;
+            margin-top: 5px;
+        }
+        /* Why Choose Us Highlight Box */
+        .features-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .feature-item h4 {
+            color: #0b3c5d;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .feature-item p {
+            font-size: 14px;
+            color: #666;
         }
         /* Footer */
         footer {
@@ -127,42 +201,78 @@
 </head>
 <body>
 
+    <!-- Top Notice Bar -->
+    <div class="notice-bar">
+        📢 मुफ्ती उज़ैर ऑनलाइन एकेडमी में नए सत्र के लिए दाखिले शुरू हैं! आज ही संपर्क करें।
+    </div>
+
     <!-- Header -->
     <header>
         <div class="logo">Mufti Uzair Academy</div>
-        <nav>
-            <a href="#">होम</a>
-            <a href="#">कोर्सेज</a>
-            <a href="#">लाइव क्लास</a>
-            <a href="#" style="background: #ffcc00; color: #0b3c5d; padding: 8px 15px; border-radius: 20px;">लॉगिन</a>
-        </nav>
+        <div class="nav-container">
+            <nav>
+                <a href="index.html" style="color: #ffcc00;">होम</a>
+                <a href="courses.html">कोर्सेज</a>
+                <a href="live.html">लाइव क्लास</a>
+                <a href="contact.html">सम्पर्क</a>
+            </nav>
+            <!-- Language Switcher Dropdown -->
+            <select class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="ur">🇵🇰 اردو (Urdu)</option>
+            </select>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>मुफ्ती उज़ैर साहब के साथ दीन और कुरान की तालीम</h1>
+        <div class="urdu-title">مفتی عزیر صاحب کے ساتھ دین اور قرآن کی تعلیم</div>
         <p>घर बैठे आधुनिक तकनीक के साथ लाइव क्लासेज और बेहतरीन कोर्सेज से जुड़ें।</p>
         <div class="btn-container">
-            <a href="#" class="btn">लाइव क्लास ज्वाइन करें</a>
-            <a href="#" class="btn btn-outline">कोर्सेज देखें</a>
+            <a href="live.html" class="btn">लाइव क्लास ज्वाइन करें</a>
+            <a href="courses.html" class="btn btn-outline">कोर्सेज देखें</a>
         </div>
     </section>
 
     <!-- Courses Section -->
     <div class="container">
-        <h2 class="section-title">हमारे खास कोर्सेज</h2>
+        <h2 class="section-title">हमारे खास कोर्सेज / ہمارے خاص کورسز</h2>
         <div class="grid">
             <div class="card">
                 <h3>हिफ्ज़-ए-कुरान</h3>
+                <div class="urdu-text">حفظ القرآن</div>
                 <p>बच्चों और बड़ों के लिए मुफ्ती साहब की देखरेख में कुरान हिफ्ज़ करने का विशेष कोर्स।</p>
             </div>
             <div class="card">
                 <h3>तर्जुमा व तफसीर</h3>
+                <div class="urdu-text">ترجمہ و تفسیر</div>
                 <p>कुरान मजीद को आसान हिंदी और तर्जुमा के साथ गहराई से समझें।</p>
             </div>
             <div class="card">
                 <h3>बुनियादी दीन व मसाइल</h3>
+                <div class="urdu-text">بنیادی دین و مسائل</div>
                 <p>रोजमर्रा की जिंदगी के जरूरी मसाइल और اسلامی تعلیمات का کورس।</p>
+            </div>
+        </div>
+
+        <!-- Why Choose Us Section (Added Value) -->
+        <div class="features-box">
+            <h2 class="section-title" style="margin-bottom: 10px;">हमें क्यों चुनें? / کیوں منتخب کریں؟</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>🎯 व्यक्तिगत निगरानी</h4>
+                    <p>हर छात्र पर मुफ्ती साहब की सीधी नजर और मश्क।</p>
+                </div>
+                <div class="feature-item">
+                    <h4>💻 आसान लाइव क्लास</h4>
+                    <p>घर बैठे मोबाइल पर ज़ूम या लाइव सेशन की सुविधा।</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📜 शुद्ध तजवीद</h4>
+                    <p>मखार्ज और सही लहजे के साथ कुरान की तालीम।</p>
+                </div>
             </div>
         </div>
     </div>
@@ -171,6 +281,18 @@
     <footer>
         <p>&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function changeLanguage(lang) {
+            if(lang === 'ur') {
+                alert('اردو زبان کا انتخاب کر लिया गया है। (Urdu mode selected)');
+            } else if(lang === 'en') {
+                alert('English language selected.');
+            } else {
+                alert('हिंदी भाषा चुनी गई है।');
+            }
+        }
+    </script>
 
 </body>
 </html>
