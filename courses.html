@@ -6,167 +6,12 @@
     <title id="page-title">Courses - Mufti Uzair Academy</title>
     <!-- Google Fonts for World-Class Look -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-        /* Header / Navbar */
-        header {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            flex-wrap: wrap;
-            gap: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            color: #fbbf24;
-            font-family: 'Amiri', serif;
-            letter-spacing: 0.5px;
-        }
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        nav a:hover, nav a.active {
-            color: #fbbf24;
-        }
-        /* Language Selector Dropdown */
-        .lang-select {
-            background-color: #334155;
-            color: #fbbf24;
-            border: 1px solid #475569;
-            padding: 8px 14px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-            transition: 0.3s;
-        }
-        .lang-select:hover {
-            border-color: #fbbf24;
-        }
-        .lang-select option {
-            background-color: #1e293b;
-            color: white;
-        }
-        /* Page Header Banner */
-        .page-banner {
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
-        .page-banner h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #ffffff;
-            font-weight: 700;
-        }
-        .page-banner .urdu-subtitle {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 26px;
-            color: #fbbf24;
-            direction: rtl;
-        }
-        /* Container & Cards */
-        .container {
-            max-width: 1150px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: white;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
-            border-color: #fbbf24;
-        }
-        .card h3 {
-            color: #0f172a;
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-        .card .urdu-text {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 16px;
-            color: #64748b;
-            direction: rtl;
-            margin-bottom: 15px;
-        }
-        .card p {
-            color: #475569;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .btn-enroll {
-            background-color: #fbbf24;
-            color: #0f172a;
-            padding: 10px 22px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn-enroll:hover {
-            background-color: #f59e0b;
-            color: white;
-        }
-        /* Footer */
-        footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 30px;
-            margin-top: 70px;
-            font-size: 15px;
-            border-top: 1px solid #1e293b;
-        }
-    </style>
+    <!-- Link to our External CSS File -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header / Navbar -->
     <header>
         <div class="logo">Mufti Uzair Academy</div>
         <div class="nav-container">
@@ -188,29 +33,35 @@
 
     <!-- Page Banner -->
     <section class="page-banner">
-        <h1 id="banner-title">हमारे सभी विशेष कोर्सेज</h1>
-        <div class="urdu-subtitle">ہمارے تمام خصوصی کورسز</div>
+        <h1 id="banner-title">हमारे तमाम कोर्सेज</h1>
+        <div class="urdu-subtitle">تمام کورسز کی فہرست</div>
     </section>
 
-    <!-- Courses Grid -->
+    <!-- Courses Content Section -->
     <div class="container">
         <div class="grid">
+            <!-- Course 1 -->
             <div class="card">
-                <h3 id="c1-title">हिफ्ज़-ए-कुरान</h3>
-                <div class="urdu-text">حفظ القرآن</div>
-                <p id="c1-desc">बच्चों और बड़ों के लिए मुफ्ती साहब की सीधी देखरेख और तजवीद के साथ कुरान हिफ्ज़ करने का विशेष कोर्स।</p>
+                <h3 id="c1-title">हिफ्ज़-ए-कुरआन</h3>
+                <div class="urdu-text" id="c1-urdu">حفظ القرآن</div>
+                <p id="c1-desc">ماہر قاری کی نگرانی میں تجوید और सही मखारिज के साथ कुरआन मुकम्मल हिफ्ज़ करने का कोर्स।</p>
+                <br>
                 <a href="contact.html" class="btn-enroll" id="c1-btn">दाखिला लें</a>
             </div>
+            <!-- Course 2 -->
             <div class="card">
-                <h3 id="c2-title">तर्जुमा व तफसीर</h3>
-                <div class="urdu-text">ترجمہ و تفسیر</div>
-                <p id="c2-desc">कुरान मजीद की आयतों को आसान हिंदी व उर्दू तर्जुमा और गहरी तफसीर के साथ समझें।</p>
+                <h3 id="c2-title">तर्जुमा व तफ़सीर</h3>
+                <div class="urdu-text" id="c2-urdu">ترجمہ و تفسیر</div>
+                <p id="c2-desc">अल्लाह के कलाम को आसान तर्जुमा और बेहतरीन तफ़सीर के साथ रूह में उतारने की क्लास।</p>
+                <br>
                 <a href="contact.html" class="btn-enroll" id="c2-btn">दाखिला लें</a>
             </div>
+            <!-- Course 3 -->
             <div class="card">
                 <h3 id="c3-title">बुनियादी दीन व मसाइल</h3>
-                <div class="urdu-text">بنیادی دین و مسائل</div>
-                <p id="c3-desc">نماز، روزہ, طہارت اور روزمرہ زندگی کے ضروری اسلامی مسائل اور احکام کی تعلیم।</p>
+                <div class="urdu-text" id="c3-urdu">بنیادی دین و مسائل</div>
+                <p id="c3-desc">नमाज़, रोज़ा, तहारत और रोज़मर्रा की जिंदगी के जरूरी इस्लामी मसाइल की तालीम।</p>
+                <br>
                 <a href="contact.html" class="btn-enroll" id="c3-btn">दाखिला लें</a>
             </div>
         </div>
@@ -221,48 +72,7 @@
         <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript Smart Language Engine -->
-    <script>
-        function changeLanguage(lang) {
-            if (lang === 'ur') {
-                document.getElementById('nav-home').innerText = "ہوم";
-                document.getElementById('nav-courses').innerText = "کورسز";
-                document.getElementById('nav-live').innerText = "لائیو کلاس";
-                document.getElementById('nav-faq').innerText = "سوال و جواب";
-                document.getElementById('nav-contact').innerText = "رابطہ";
-                document.getElementById('banner-title').innerText = "ہمارے تمام خصوصی کورسز";
-                document.getElementById('c1-title').innerText = "حفظ القرآن";
-                document.getElementById('c1-desc').innerText = "بچوں اور بڑوں کے لیے مفتی صاحب کی براہ راست نگرانی اور تجوید کے ساتھ قرآن حفظ کرنے کا خصوصی کورس۔";
-                document.getElementById('c1-btn').innerText = "داخلہ لیں";
-                document.getElementById('c2-title').innerText = "ترجمہ و تفسیر";
-                document.getElementById('c2-desc').innerText = "قرآن مجید کی آیات کو آسان فہم ترجمہ اور گہری تفسیر کے ساتھ سمجھیں۔";
-                document.getElementById('c2-btn').innerText = "داخلہ لیں";
-                document.getElementById('c3-title').innerText = "بنیادی دین و مسائل";
-                document.getElementById('c3-desc').innerText = "نماز، روزہ، طہارت اور روزمرہ زندگی کے ضروری اسلامی مسائل اور احکام کی تعلیم۔";
-                document.getElementById('c3-btn').innerText = "داخلہ لیں";
-                document.getElementById('footer-text').innerHTML = "&copy; 2026 مفتی عزیر آن لائن اکیڈمی۔ جملہ حقوق محفوظ ہیں۔";
-            } else if (lang === 'en') {
-                document.getElementById('nav-home').innerText = "Home";
-                document.getElementById('nav-courses').innerText = "Courses";
-                document.getElementById('nav-live').innerText = "Live Class";
-                document.getElementById('nav-faq').innerText = "FAQ";
-                document.getElementById('nav-contact').innerText = "Contact";
-                document.getElementById('banner-title').innerText = "All Our Special Courses";
-                document.getElementById('c1-title').innerText = "Hifz-e-Quran";
-                document.getElementById('c1-desc').innerText = "Special Quran memorization course with proper Tajweed under direct guidance.";
-                document.getElementById('c1-btn').innerText = "Enroll Now";
-                document.getElementById('c2-title').innerText = "Tarjuma & Tafseer";
-                document.getElementById('c2-desc').innerText = "Understand Quranic verses deeply with easy translation and explanation.";
-                document.getElementById('c2-btn').innerText = "Enroll Now";
-                document.getElementById('c3-title').innerText = "Basic Deen & Masail";
-                document.getElementById('c3-desc').innerText = "Essential Islamic teachings regarding Salah, fasting, purity, and daily life rulings.";
-                document.getElementById('c3-btn').innerText = "Enroll Now";
-                document.getElementById('footer-text').innerHTML = "&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.";
-            } else {
-                location.reload(); // Reset back to default Hindi
-            }
-        }
-    </script>
-
+    <!-- Link to our External JavaScript File -->
+    <script src="script.js"></script>
 </body>
 </html>
