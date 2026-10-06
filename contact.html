@@ -3,168 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Contact Us - Mufti Uzair Academy</title>
+    <title id="page-title">Contact - Mufti Uzair Academy</title>
     <!-- Google Fonts for World-Class Look -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f8fafc;
-            color: #1e293b;
-        }
-        /* Header / Navbar */
-        header {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            flex-wrap: wrap;
-            gap: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            color: #fbbf24;
-            font-family: 'Amiri', serif;
-            letter-spacing: 0.5px;
-        }
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        nav a:hover, nav a.active {
-            color: #fbbf24;
-        }
-        /* Language Selector Dropdown */
-        .lang-select {
-            background-color: #334155;
-            color: #fbbf24;
-            border: 1px solid #475569;
-            padding: 8px 14px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-            transition: 0.3s;
-        }
-        .lang-select:hover {
-            border-color: #fbbf24;
-        }
-        .lang-select option {
-            background-color: #1e293b;
-            color: white;
-        }
-        /* Page Banner */
-        .page-banner {
-            background: linear-gradient(135deg, #0f172a, #1e3a8a);
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
-        .page-banner h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #ffffff;
-            font-weight: 700;
-        }
-        .page-banner .urdu-subtitle {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 26px;
-            color: #fbbf24;
-            direction: rtl;
-        }
-        /* Contact Section Container */
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        .contact-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-        .contact-card h2 {
-            color: #0f172a;
-            font-size: 26px;
-            margin-bottom: 12px;
-        }
-        .contact-card .urdu-q {
-            font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 18px;
-            color: #64748b;
-            direction: rtl;
-            margin-bottom: 25px;
-        }
-        .contact-info-box {
-            background: #f1f5f9;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            border: 1px solid #e2e8f0;
-        }
-        .contact-info-box p {
-            color: #334155;
-            font-size: 17px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        .btn-whatsapp {
-            background-color: #25d366;
-            color: white;
-            padding: 14px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            display: inline-block;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-            transition: all 0.3s ease;
-        }
-        .btn-whatsapp:hover {
-            background-color: #20ba5a;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-        }
-        /* Footer */
-        footer {
-            background-color: #0f172a;
-            color: #94a3b8;
-            text-align: center;
-            padding: 30px;
-            margin-top: 70px;
-            font-size: 15px;
-            border-top: 1px solid #1e293b;
-        }
-    </style>
+    <!-- Link to our External CSS File -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header / Navbar -->
     <header>
         <div class="logo">Mufti Uzair Academy</div>
         <div class="nav-container">
@@ -175,7 +22,7 @@
                 <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
                 <a href="contact.html" class="active" style="color: #fbbf24;" id="nav-contact">सम्पर्क</a>
             </nav>
-            <!-- Language Switcher Dropdown -->
+            <!-- Language Selector Dropdown -->
             <select class="lang-select" onchange="changeLanguage(this.value)">
                 <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
                 <option value="en">🇬🇧 English</option>
@@ -187,19 +34,18 @@
     <!-- Page Banner -->
     <section class="page-banner">
         <h1 id="banner-title">हमसे संपर्क करें</h1>
-        <div class="urdu-subtitle">ہم سے رابطہ کریں</div>
+        <div class="urdu-subtitle">رابطہ کیجیے</div>
     </section>
 
     <!-- Contact Content Section -->
     <div class="container">
-        <div class="contact-card">
-            <h2 id="contact-heading">मुफ्ती उज़ैर साहब से सीधे जुड़ें</h2>
-            <div class="urdu-q">مفتی عزیر صاحب سے براہ راست رابطہ کریں</div>
-            <div class="contact-info-box">
-                <p id="contact-phone">📞 फोन / व्हाट्सएप: [यहाँ अपना नंबर दर्ज करें]</p>
-                <p id="contact-email">✉️️ ईमेल: academy@muftiuzair.com</p>
-            </div>
-            <a href="#" class="btn-whatsapp" id="btn-wa">व्हाट्सएप पर बात करें</a>
+        <div class="contact-info-box" style="text-align: center;">
+            <h2 id="contact-heading" style="color: #0f172a; margin-bottom: 15px; font-size: 24px;">दाखिला और जानकारी के लिए राब्ता करें</h2>
+            <div class="urdu-q" style="margin-bottom: 20px;">داخلہ اور معلومات کے لیے رابطہ کریں</div>
+            <p id="p-phone">📞 फोन नंबर / WhatsApp: +91 XXXXXXXXXX</p>
+            <p id="p-email">📧 ईमेल: info@muftiuzairacademy.com</p>
+            <br>
+            <a href="#" class="btn-whatsapp" id="btn-wa">व्हाट्सएप पर चैट करें</a>
         </div>
     </div>
 
@@ -208,38 +54,7 @@
         <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript Smart Language Engine -->
-    <script>
-        function changeLanguage(lang) {
-            if (lang === 'ur') {
-                document.getElementById('nav-home').innerText = "ہوم";
-                document.getElementById('nav-courses').innerText = "کورسز";
-                document.getElementById('nav-live').innerText = "لائیو کلاس";
-                document.getElementById('nav-faq').innerText = "سوال و جواب";
-                document.getElementById('nav-contact').innerText = "رابطہ";
-                document.getElementById('banner-title').innerText = "ہم سے رابطہ کریں";
-                document.getElementById('contact-heading').innerText = "مفتی عزیر صاحب سے براہ راست رابطہ کریں";
-                document.getElementById('contact-phone').innerText = "📞 فون / واٹس ایپ: [یہاں اپنا نمبر درج کریں]";
-                document.getElementById('contact-email').innerText = "✉️ ای میل: academy@muftiuzair.com";
-                document.getElementById('btn-wa').innerText = "واٹس ایپ پر بات کریں";
-                document.getElementById('footer-text').innerHTML = "&copy; 2026 مفتی عزیر آن لائن اکیڈمی۔ جملہ حقوق محفوظ ہیں۔";
-            } else if (lang === 'en') {
-                document.getElementById('nav-home').innerText = "Home";
-                document.getElementById('nav-courses').innerText = "Courses";
-                document.getElementById('nav-live').innerText = "Live Class";
-                document.getElementById('nav-faq').innerText = "FAQ";
-                document.getElementById('nav-contact').innerText = "Contact";
-                document.getElementById('banner-title').innerText = "Contact Us";
-                document.getElementById('contact-heading').innerText = "Connect Directly with Mufti Uzair";
-                document.getElementById('contact-phone').innerText = "📞 Phone / WhatsApp: [Enter your number here]";
-                document.getElementById('contact-email').innerText = "✉️ Email: academy@muftiuzair.com";
-                document.getElementById('btn-wa').innerText = "Chat on WhatsApp";
-                document.getElementById('footer-text').innerHTML = "&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.";
-            } else {
-                location.reload(); // Reset back to default Hindi
-            }
-        }
-    </script>
-
+    <!-- Link to our External JavaScript File -->
+    <script src="script.js"></script>
 </body>
 </html>
