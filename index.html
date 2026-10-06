@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Mufti Uzair Online Academy</title>
+    <title id="page-title">Mufti Uzair Academy - Online Islamic Education</title>
     <!-- Google Fonts for World-Class Look -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Link to our External CSS File -->
@@ -12,8 +12,8 @@
 <body>
 
     <!-- Top Notice Bar with Glow -->
-    <div class="notice-bar">
-        ✨ नया बैच शुरू हो रहा है! आज ही अपना दाखिला सुनिश्चित करें। ✨
+    <div class="notice-bar" id="notice-text">
+        ✨ दाखिले शुरू हैं! मुफ्ती उज़ैर साहब से ऑनलाइन कुरआन और दीन सीखने के लिए आज ही राब्ता करें। ✨
     </div>
 
     <!-- Header / Navbar -->
@@ -27,7 +27,7 @@
                 <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
                 <a href="contact.html" id="nav-contact">सम्पर्क</a>
             </nav>
-            <!-- Language Selector Dropdown -->
+            <!-- Language Switcher Dropdown -->
             <select class="lang-select" onchange="changeLanguage(this.value)">
                 <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
                 <option value="en">🇬🇧 English</option>
@@ -36,63 +36,69 @@
         </div>
     </header>
 
-    <!-- Hero / Banner Section -->
+    <!-- Hero / Main Banner Section -->
     <section class="hero">
         <h1 id="banner-title">मुफ्ती उज़ैर ऑनलाइन एकेडमी में आपका स्वागत है</h1>
-        <div class="urdu-title">مفتی عزیر آن لائن اکیڈمی میں آپ کا خیرمقدم ہے</div>
-        <p id="banner-desc">बच्चों और बड़ों के लिए कुरआन मजीद हिफ्ज़, तजवीद, तर्जुमा-तफ़सीर और बुनियादी दीनी मसाइल सीखने का बेहतरीन जरिया।</p>
+        <div class="urdu-subtitle" id="banner-subtitle">مفتی عزیر آن لائن اکیڈمی میں آپ کا خیرمقدم ہے</div>
+        <p id="banner-desc">घर बैठे ऑनलाइन कुरआन मजीद तजवीद, तर्जुमा-तफसीर की बेहतरीन दीनी तालीम हासिल करें।</p>
+        
+        <!-- Action Buttons -->
         <div class="btn-container">
-            <a href="courses.html" class="btn" id="btn-explore">कोर्सेज देखें</a>
-            <a href="live.html" class="btn btn-outline" id="btn-join-live">लाइव क्लास ज्वाइन करें</a>
+            <a href="courses.html" class="btn-enroll" id="btn-explore">कोर्सेज देखें</a>
+            <a href="live.html" class="btn-live-action" id="btn-join-live">लाइव क्लास ज्वाइन करें</a>
         </div>
     </section>
 
-    <!-- Main Container for Courses -->
+    <!-- Academy Key Features Section (New Addition for World-Class Trust) -->
+    <div class="container">
+        <div class="features-box">
+            <h2 style="text-align: center; color: #0f172a; margin-bottom: 25px; font-size: 26px;">मुफ्ती उज़ैर एकेडमी क्यों चुनी जाए?</h2>
+            <div class="urdu-q" style="text-align: center; margin-bottom: 30px;">مفتی عزیر اکیڈمی کیوں منتخب کی جائے؟</div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4 style="color: #0f172a; margin-bottom: 8px;">🎓 माहिर असाज़िधा</h4>
+                    <p>तजुर्बेकार और आलिम उलमा की देखरेख में बेहतरीन तालीम।</p>
+                </div>
+                <div class="feature-item">
+                    <h4 style="color: #0f172a; margin-bottom: 8px;">💻 लाइव वीडियो क्लासेज</h4>
+                    <p>बिना किसी ऐप के सीधे वेबसाइट पर आसान लाइव क्लास।</p>
+                </div>
+                <div class="feature-item">
+                    <h4 style="color: #0f172a; margin-bottom: 8px;">⏰ लचीला समय</h4>
+                    <p>छात्रों की सहूलियत के लिए सुबह और शाम के बैचेस।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Courses Section -->
     <div class="container">
         <h2 class="section-title" id="sec-courses-title">हमारे खास कोर्सेज</h2>
         <div class="grid">
             <!-- Course 1 -->
             <div class="card">
                 <h3 id="c1-title">हिफ्ज़-ए-कुरआन</h3>
-                <div class="urdu-text" id="c1-urdu">حفظ القرآن</div>
-                <p id="c1-desc">माहिर قاری کی نگرانی में تجوید और सही मखारिज के साथ कुरआन मुकम्मल हिफ्ज़ करने का कोर्स।</p>
+                <div class="urdu-q" id="c1-urdu">حفظ القرآن</div>
+                <p id="c1-desc">बच्चों और बड़ों के लिए मजबूत हिफ्ज़ की निगरानी और सही मखारिज के साथ मुकम्मल कुरआन हिफ्ज़ करने का कोर्स।</p>
                 <br>
-                <a href="contact.html" class="btn-enroll" id="c1-btn">दाखिला लें</a>
+                <a href="courses.html" class="btn-enroll" id="c1-btn">दाखिला लें</a>
             </div>
             <!-- Course 2 -->
             <div class="card">
-                <h3 id="c2-title">तर्जुमा व तफ़सीर</h3>
-                <div class="urdu-text" id="c2-urdu">ترجمہ و تفسیر</div>
-                <p id="c2-desc">अल्लाह के कलाम को आसान तर्जुमा और बेहतरीन तफ़सीर के साथ रूह में उतारने की क्लास।</p>
+                <h3 id="c2-title">तर्जुमा व तफसीर</h3>
+                <div class="urdu-q" id="c2-urdu">ترجمہ و تفسیر</div>
+                <p id="c2-desc">कुरआन मजीद की आयतों को आसान फहम तर्जुमा और बेहतरीन तफसीर के साथ रूह में उतरने की तालीम।</p>
                 <br>
-                <a href="contact.html" class="btn-enroll" id="c2-btn">दाखिला लें</a>
+                <a href="courses.html" class="btn-enroll" id="c2-btn">दाखिला लें</a>
             </div>
             <!-- Course 3 -->
             <div class="card">
                 <h3 id="c3-title">बुनियादी दीन व मसाइल</h3>
-                <div class="urdu-text" id="c3-urdu">بنیادی دین و مسائل</div>
-                <p id="c3-desc">नमाज़, रोज़ा, तहारत और रोज़मर्रा की जिंदगी के जरूरी इस्लामी मसाइल की तालीम।</p>
+                <div class="urdu-q" id="c3-urdu">बुनियादी दीन و مسائل</div>
+                <p id="c3-desc">नमाज़, रोज़ा, तहारत और रोज़मर्रा की जिंदगी के ज़रूरी इस्लामी मसाइल और एहकाम की तालीम।</p>
                 <br>
-                <a href="contact.html" class="btn-enroll" id="c3-btn">दाखिला लें</a>
-            </div>
-        </div>
-
-        <!-- Academy Features Box -->
-        <div class="features-box">
-            <h2 class="section-title" style="margin-bottom: 20px;">हमारी विशेषताएं</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <h4>🎓 अनुभवी उस्ताद</h4>
-                    <p>योग्य और तजुर्बेकार उलमा-ए-किराम द्वारा दीक्षा।</p>
-                </div>
-                <div class="feature-item">
-                    <h4>⏰ लचीला समय</h4>
-                    <p>छात्रों की सुविधा के अनुसार सुबह और शाम के बैच।</p>
-                </div>
-                <div class="feature-item">
-                    <h4>🔒 सुरक्षित माहौल</h4>
-                    <p>बच्चों और बच्चियों के लिए अलग और महफूज इंतजाम।</p>
-                </div>
+                <a href="courses.html" class="btn-enroll" id="c3-btn">दाखिला लें</a>
             </div>
         </div>
     </div>
