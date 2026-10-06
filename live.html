@@ -3,23 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Class - Mufti Uzair Academy</title>
+    <title id="page-title">Live Class - Mufti Uzair Academy</title>
+    <!-- Google Fonts for World-Class Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f7f6; color: #333; }
-        header { background: linear-gradient(135deg, #0b3c5d, #1d2731); color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; color: #ffcc00; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 16px; }
-        nav a:hover { color: #ffcc00; }
-        .live-container { max-width: 900px; margin: 40px auto; padding: 0 20px; text-align: center; }
-        .live-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
-        .status-badge { display: inline-block; background-color: #e74c3c; color: white; padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-bottom: 20px; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-        h1 { color: #0b3c5d; margin-bottom: 15px; font-size: 28px; }
-        p { color: #555; font-size: 16px; line-height: 1.6; margin-bottom: 30px; }
-        .join-btn { background-color: #27ae60; color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 18px; display: inline-block; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); transition: 0.3s; }
-        .join-btn:hover { background-color: #219653; transform: translateY(-2px); }
-        footer { background-color: #1d2731; color: white; text-align: center; padding: 20px; margin-top: 60px; font-size: 14px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        /* Header / Navbar */
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            flex-wrap: wrap;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fbbf24;
+            font-family: 'Amiri', serif;
+            letter-spacing: 0.5px;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: #fbbf24;
+        }
+        /* Language Selector Dropdown */
+        .lang-select {
+            background-color: #334155;
+            color: #fbbf24;
+            border: 1px solid #475569;
+            padding: 8px 14px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            transition: 0.3s;
+        }
+        .lang-select:hover {
+            border-color: #fbbf24;
+        }
+        .lang-select option {
+            background-color: #1e293b;
+            color: white;
+        }
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+        .page-banner h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .page-banner .urdu-subtitle {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 26px;
+            color: #fbbf24;
+            direction: rtl;
+        }
+        /* Live Section Container */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .live-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .live-card h2 {
+            color: #0f172a;
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+        .live-card .urdu-q {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 18px;
+            color: #64748b;
+            direction: rtl;
+            margin-bottom: 20px;
+        }
+        .live-card p {
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn-live-action {
+            background-color: #22c55e;
+            color: white;
+            padding: 16px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-live-action:hover {
+            background-color: #16a34a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
+        }
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px;
+            margin-top: 70px;
+            font-size: 15px;
+            border-top: 1px solid #1e293b;
+        }
     </style>
 </head>
 <body>
@@ -27,28 +160,74 @@
     <!-- Header -->
     <header>
         <div class="logo">Mufti Uzair Academy</div>
-        <nav>
-            <a href="index.html">होम</a>
-            <a href="courses.html">कोर्सेज</a>
-            <a href="live.html" style="color: #ffcc00;">लाइव क्लास</a>
-            <a href="#" style="background: #ffcc00; color: #0b3c5d; padding: 8px 15px; border-radius: 20px;">लॉगिन</a>
-        </nav>
+        <div class="nav-container">
+            <nav>
+                <a href="index.html" id="nav-home">होम</a>
+                <a href="courses.html" id="nav-courses">कोर्सेज</a>
+                <a href="live.html" class="active" style="color: #fbbf24;" id="nav-live">लाइव क्लास</a>
+                <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
+                <a href="contact.html" id="nav-contact">सम्पर्क</a>
+            </nav>
+            <!-- Language Selector Dropdown -->
+            <select class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="ur">🇵🇰 اردو (Urdu)</option>
+            </select>
+        </div>
     </header>
 
-    <!-- Live Section -->
-    <div class="live-container">
-        <div class="live-box">
-            <span class="status-badge">● LIVE CLASS ROOM</span>
-            <h1>मुफ्ती उज़ैर साहब की लाइव मजलिस व क्लास</h1>
-            <p>यहाँ से आप मुफ्ती साहब की चल रही लाइव क्लास या ज़ूम सेशन से सीधे जुड़ सकते हैं। क्लास शुरू होने से 5 मिनट पहले नीचे दिए गए बटन पर क्लिक करें।</p>
-            <a href="#" class="join-btn">क्लास रूम में प्रवेश करें (Join Class)</a>
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1 id="banner-title">लाइव क्लास रूम</h1>
+        <div class="urdu-subtitle">لائیو کلاس روم</div>
+    </section>
+
+    <!-- Live Content Section -->
+    <div class="container">
+        <div class="live-card">
+            <h2 id="live-heading">मुफ्ती उज़ैर साहब की लाइव क्लास से जुड़ें</h2>
+            <div class="urdu-q">مفتی عزیر صاحب کی لائیو کلاس سے جڑیں</div>
+            <p id="live-desc">तय समय पर नीचे दिए गए बटन पर क्लिक करके सीधे ज़ूम या ऑनलाइन क्लासरूम में प्रवेश करें।</p>
+            <a href="#" class="btn-live-action" id="live-btn">अब लाइव क्लास ज्वाइन करें</a>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
+        <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript Smart Language Engine -->
+    <script>
+        function changeLanguage(lang) {
+            if (lang === 'ur') {
+                document.getElementById('nav-home').innerText = "ہوم";
+                document.getElementById('nav-courses').innerText = "کورسز";
+                document.getElementById('nav-live').innerText = "لائیو کلاس";
+                document.getElementById('nav-faq').innerText = "سوال و جواب";
+                document.getElementById('nav-contact').innerText = "رابطہ";
+                document.getElementById('banner-title').innerText = "لائیو کلاس روم";
+                document.getElementById('live-heading').innerText = "مفتی عزیر صاحب کی لائیو کلاس سے جڑیں";
+                document.getElementById('live-desc').innerText = "طے شدہ وقت پر نیچے دیے गए बटन पर क्लिक करके सीधे زूम या ऑनलाइन क्लासरूम में प्रवेश करें।";
+                document.getElementById('live-btn').innerText = "لائیو کلاس جوائن کریں";
+                document.getElementById('footer-text').innerHTML = "&copy; 2026 مفتی عزیر آن لائن اکیڈمی۔ جملہ حقوق محفوظ ہیں۔";
+            } else if (lang === 'en') {
+                document.getElementById('nav-home').innerText = "Home";
+                document.getElementById('nav-courses').innerText = "Courses";
+                document.getElementById('nav-live').innerText = "Live Class";
+                document.getElementById('nav-faq').innerText = "FAQ";
+                document.getElementById('nav-contact').innerText = "Contact";
+                document.getElementById('banner-title').innerText = "Live Classroom";
+                document.getElementById('live-heading').innerText = "Join Live Class with Mufti Uzair";
+                document.getElementById('live-desc').innerText = "Click the button below at the scheduled time to enter the live classroom directly.";
+                document.getElementById('live-btn').innerText = "Join Live Class Now";
+                document.getElementById('footer-text').innerHTML = "&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.";
+            } else {
+                location.reload(); // Reset back to default Hindi
+            }
+        }
+    </script>
 
 </body>
 </html>
