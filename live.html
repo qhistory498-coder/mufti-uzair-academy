@@ -3,134 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Live Class - Mufti Uzair Academy</title>
-    <!-- Google Fonts for World-Class Look -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Link to our External CSS File -->
-    <link rel="stylesheet" href="style.css">
+    <title>मुफ्ती उज़ैर एकेडमी - ज़ूम जैसा लाइव क्लास रूम</title>
     <style>
-        /* Advanced Video Room Styling with Zoom-like Features */
-        .video-container {
-            width: 100%;
-            max-width: 1100px;
-            height: 650px;
-            margin: 20px auto;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-            background: #0f172a;
-        }
-        #jaas-container {
-            width: 100%;
-            height: 100%;
-        }
-        .live-instruction {
-            text-align: center;
-            margin-bottom: 15px;
-            color: #334155;
-            font-size: 16px;
-        }
-        .security-badge {
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            color: #92400e;
-            padding: 10px 15px;
-            border-radius: 8px;
-            max-width: 1100px;
-            margin: 0 auto 15px auto;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-        }
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; }
+        header { background: #1e3c72; color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        h1 { margin: 0; font-size: 18px; }
+        #meet-container { flex: 1; width: 100%; background: #111; }
+        .top-bar { padding: 10px 20px; background: #fff; display: flex; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .room-input { padding: 8px 12px; width: 250px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        .name-input { padding: 8px 12px; width: 180px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; }
+        .join-btn { padding: 8px 16px; background: #28a745; color: white; border: none; border-radius: 4px; font-size: 14px; font-weight: bold; cursor: pointer; }
+        .join-btn:hover { background: #218838; }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">Mufti Uzair Academy</div>
-        <div class="nav-container">
-            <nav>
-                <a href="index.html" id="nav-home">होम</a>
-                <a href="courses.html" id="nav-courses">कोर्सेज</a>
-                <a href="live.html" class="active" style="color: #fbbf24;" id="nav-live">लाइव क्लास</a>
-                <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
-                <a href="contact.html" id="nav-contact">सम्पर्क</a>
-            </nav>
-            <!-- Language Switcher Dropdown -->
-            <select class="lang-select" onchange="changeLanguage(this.value)">
-                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="ur">🇵🇰 اردو (Urdu)</option>
-            </select>
-        </div>
-    </header>
+<header>
+    <h1>🎥 मुफ्ती उज़ैर एकेडमी - लाइव क्लास रूम</h1>
+    <span style="font-size: 13px; background: #ffc107; color: #000; padding: 3px 8px; border-radius: 3px; font-weight: bold;">लाइव एचडी क्लास</span>
+</header>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 id="banner-title">लाइव क्लासरूम</h1>
-        <div class="urdu-subtitle">لائیو کلاس روم</div>
-    </section>
+<div class="top-bar">
+    <label style="font-size: 14px; font-weight: bold;">आपका नाम:</label>
+    <input type="text" id="userNameInput" class="name-input" placeholder="अपना नाम लिखें...">
+    
+    <label style="font-size: 14px; font-weight: bold;">क्लास रूम:</label>
+    <input type="text" id="roomNameInput" class="room-input" value="MuftiUzairLiveClass">
+    
+    <button class="join-btn" onclick="startMeeting()">क्लास शुरू करें / जुड़ें</button>
+</div>
 
-    <!-- Main Content Section -->
-    <div class="container">
-        <div class="security-badge">
-            🔒 सुरक्षित क्लासरूम: यह क्लास पासवर्ड और एन्क्रिप्शन से सुरक्षित है। केवल अधिकृत छात्र ही इसमें प्रवेश कर सकते हैं।
-        </div>
+<!-- ज़ूम जैसी वीडियो मीटिंग दिखाने की मुख्य जगह -->
+<div id="meet-container"></div>
+
+<!-- Jitsi Meet External API Library (Zoom Features Provider) -->
+<script src="https://8x8.vc/vpaas-magic-cookie-95146c6ae8e8477f805a5a1f6aa44e40/external_api.js"></script>
+<script>
+    let api = null;
+
+    function startMeeting() {
+        const roomName = document.getElementById('roomNameInput').value.trim() || "MuftiUzairLiveClass";
+        const userName = document.getElementById('userNameInput').value.trim() || "Student / Guest";
         
-        <div class="live-instruction">
-            <p>मुफ्ती उज़ैर साहब की लाइव क्लास। नीचे दिए गए प्लेयर में चैट, स्क्रीन शेयरिंग, हैंड रेज़ और पार्टिसिपेंट लिस्ट के साथ क्लास का आनंद लें।</p>
-        </div>
-        
-        <!-- Advanced Embedded Video Room Container -->
-        <div class="video-container">
-            <div id="jaas-container"></div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Jitsi External API Script for Zoom-like Features -->
-    <script src="https://8x8.vc/vpaas-magic-cookie-9515904d9e9e4f50b4ec74e1d13f019d/external_api.js" async></script>
-    <script>
-        window.onload = function () {
-            const domain = "8x8.vc";
-            const options = {
-                roomName: "vpaas-magic-cookie-9515904d9e9e4f50b4ec74e1d13f019d/MuftiUzairAcademySecureLiveClass",
-                width: "100%",
-                height: "100%",
-                parentNode: document.querySelector('#jaas-container'),
-                configOverwrite: {
-                    startWithAudioMuted: true,
-                    startWithVideoMuted: false,
-                    subject: "Mufti Uzair Academy Live Class",
-                    enableWelcomePage: false,
-                    prejoinPageEnabled: true
-                },
-                interfaceConfigOverwrite: {
-                    // Enabling all Zoom-like features: Chat, Raise Hand, Tile View, Screen Sharing, Participants list
-                    TOOLBAR_BUTTONS: [
-                        'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
-                        'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
-                        'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
-                        'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-                        'tileview', 'select-background', 'download', 'help', 'mute-everyone'
-                    ],
-                    SETTINGS_SECTIONS: ['devices', 'language', 'moderator', 'profile'],
-                    SHOW_JITSI_WATERMARK: false,
-                    SHOW_WATERMARK_FOR_GUESTS: false,
-                    DEFAULT_REMOTE_DISPLAY_NAME: "Student / Talib-e-Ilm",
-                    DEFAULT_LOCAL_DISPLAY_NAME: "Mufti Uzair / Student"
-                }
-            };
-            const api = new JitsiMeetExternalAPI(domain, options);
+        // पुरानी मीटिंग बंद करें अगर चल रही हो
+        if (api != null) {
+            api.dispose();
         }
-    </script>
 
-    <!-- Link to our External JavaScript File -->
-    <script src="script.js"></script>
+        const domain = "8x8.vc";
+        const options = {
+            roomName: "vpaas-magic-cookie-95146c6ae8e8477f805a5a1f6aa44e40/" + roomName,
+            width: "100%",
+            height: "100%",
+            parentNode: document.querySelector('#meet-container'),
+            userInfo: {
+                displayName: userName
+            },
+            configOverwrite: {
+                startWithAudioMuted: false,
+                startWithVideoMuted: false,
+                prejoinPageEnabled: false,
+                disableInviteFunctions: true
+            },
+            interfaceConfigOverwrite: {
+                // ज़ूम जैसे सारे टूल्स (चैट, स्क्रीन शेयर, हैंड रेज, म्यूट बटन आदि) स्क्रीन पर दिखाई देंगे
+                TOOLBAR_BUTTONS: [
+                    'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
+                    'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
+                    'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
+                    'videoquality', 'filmstrip', 'stats', 'shortcuts', 'tileview'
+                ],
+                SHOW_JITSI_WATERMARK: false,
+                DEFAULT_REMOTE_DISPLAY_NAME: "Mufti Uzair Academy Member"
+            }
+        };
+
+        api = new JitsiMeetExternalAPI(domain, options);
+    }
+
+    // पेज खुलते ही डिफ़ॉल्ट क्लास रूम लोड हो जाएगा
+    window.onload = function() {
+        // डिफ़ॉल्ट नाम सेट कर सकते हैं
+        document.getElementById('userNameInput').value = "सद्दाम / छात्र";
+        startMeeting();
+    };
+</script>
+
 </body>
 </html>
