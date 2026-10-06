@@ -3,70 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">FAQ - Mufti Uzair Academy</title>
-    <!-- Google Fonts for World-Class Look -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Link to our External CSS File -->
-    <link rel="stylesheet" href="style.css">
+    <title>मुफ्ती उज़ैर एकेडमी - सवाल-जवाब और टेस्ट</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 800px; background: #fff; padding: 30px; margin: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { color: #1e3c72; text-align: center; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }
+        
+        /* FAQ Section Style */
+        .faq-section-title { font-size: 20px; color: #1e3c72; border-bottom: 2px solid #1e3c72; padding-bottom: 8px; margin-top: 30px; margin-bottom: 20px; }
+        .faq-item { background: #f8f9fa; border-left: 4px solid #1e3c72; padding: 15px; margin-bottom: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .faq-question { font-size: 17px; font-weight: bold; color: #333; margin-bottom: 5px; }
+        .faq-answer { font-size: 14px; color: #555; line-height: 1.5; }
+
+        /* Quiz Section Style */
+        .quiz-box { background: #eef2f7; padding: 20px; border-radius: 8px; margin-top: 20px; border: 1px solid #cbd5e1; }
+        .quiz-q { font-size: 16px; font-weight: bold; color: #222; margin-bottom: 10px; }
+        .quiz-input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 15px; }
+        .quiz-btn { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .quiz-btn:hover { background: #218838; }
+        #quizResult { margin-top: 10px; font-weight: bold; font-size: 16px; }
+
+        .contact-box { text-align: center; margin-top: 30px; padding: 20px; background: #e9ecef; border-radius: 8px; }
+        .whatsapp-btn { display: inline-block; background: #25d366; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        .whatsapp-btn:hover { background: #20ba5a; }
+    </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">Mufti Uzair Academy</div>
-        <div class="nav-container">
-            <nav>
-                <a href="index.html" id="nav-home">होम</a>
-                <a href="courses.html" id="nav-courses">कोर्सेज</a>
-                <a href="live.html" id="nav-live">लाइव क्लास</a>
-                <a href="faq.html" class="active" style="color: #fbbf24;" id="nav-faq">सवाल-जवाब</a>
-                <a href="contact.html" id="nav-contact">सम्पर्क</a>
-            </nav>
-            <!-- Language Selector Dropdown -->
-            <select class="lang-select" onchange="changeLanguage(this.value)">
-                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="ur">🇵🇰 اردو (Urdu)</option>
-            </select>
-        </div>
-    </header>
+<div class="container">
+    <h1>❓ सवाल-जवाब और प्रैक्टिस ज़ोन</h1>
+    <div class="subtitle">मुफ्ती उज़ैर एकेडमी के बारे में जानकारी और छात्रों के लिए टेस्ट बॉक्स</div>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 id="banner-title">अक्सर पूछे जाने वाले सवाल</h1>
-        <div class="urdu-subtitle">سوال و جواب</div>
-    </section>
+    <!-- हिस्सा 1: अक्सर पूछे जाने वाले सवाल (FAQ) -->
+    <div class="faq-section-title">📌 अक्सर पूछे जाने वाले सवाल (Written FAQ)</div>
 
-    <!-- FAQ Content Section -->
-    <div class="container">
-        <div class="grid">
-            <!-- FAQ 1 -->
-            <div class="faq-card">
-                <h3>क्लास का समय क्या है?</h3>
-                <div class="urdu-q">کلاس کا وقت کیا ہے؟</div>
-                <p>छात्रों की सहूलियत के लिए सुबह और शाम दोनों समय बैच उपलब्ध हैं।</p>
-            </div>
-            <!-- FAQ 2 -->
-            <div class="faq-card">
-                <h3>क्या फीस ऑनलाइन जमा होगी?</h3>
-                <div class="urdu-q">کیا فیس آن لائن جمع ہوگی؟</div>
-                <p>जी हाँ, आप यूपीआई या बैंक ट्रांसफर के जरिए आसानी से फीस जमा कर सकते हैं।</p>
-            </div>
-            <!-- FAQ 3 -->
-            <div class="faq-card">
-                <h3>क्या बच्चों के लिए अलग बैच है?</h3>
-                <div class="urdu-q">کیا بچوں کے لیے الگ بیچ ہے؟</div>
-                <p>जी हाँ, बच्चों और बड़ों के लिए बिल्कुल अलग और सुरक्षित बैचेस का इंतजाम है।</p>
-            </div>
-        </div>
+    <div class="faq-item">
+        <div class="faq-question">1. मुफ्ती उज़ैर एकेडमी में ऑनलाइन कोर्स कैसे ज्वाइन करें?</div>
+        <div class="faq-answer">आप "कोर्सेज" पेज पर जाकर कोर्स चुन सकते हैं और फॉर्म भरकर आसानी से दाखिला ले सकते हैं।</div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
-    </footer>
+    <div class="faq-item">
+        <div class="faq-question">2. लाइव क्लासेज कहाँ होती हैं?</div>
+        <div class="faq-answer">लाइव क्लासेज के लिए ज़ूम या किसी अन्य ऐप की जरूरत नहीं है, यह सीधे हमारी वेबसाइट के "लाइव क्लास" पेज पर चलती हैं।</div>
+    </div>
 
-    <!-- Link to our External JavaScript File -->
-    <script src="script.js"></script>
+    <div class="faq-item">
+        <div class="faq-question">3. क्या रिकॉर्डेड वीडियो और नोट्स मिलेंगे?</div>
+        <div class="faq-answer">जी हाँ! मुफ्ती उज़ैर साहब द्वारा अपलोड किए गए वीडियो और पीडीएफ नोट्स सीधे कोर्सेज के अंदर उपलब्ध रहते हैं।</div>
+    </div>
+
+
+    <!-- हिस्सा 2: छात्र का टेस्ट / सवाल-जवाब चेक करने वाला बॉक्स -->
+    <div class="faq-section-title">✍️ छात्र प्रैक्टिस टेस्ट बॉक्स (Interactive Quiz)</div>
+    <div class="quiz-box">
+        <div class="quiz-q">सवाल: मुफ्ती उज़ैर एकेडमी की लाइव क्लास देखने के लिए कौन सा पेज खोलना पड़ता है?</div>
+        <p style="font-size: 13px; color: #666; margin-top: 0;">(सही उत्तर अंग्रेजी में लिखें जैसे: live.html)</p>
+        <input type="text5" id="userAnswer" class="quiz-input" placeholder="अपना उत्तर यहाँ लिखें...">
+        <button class="quiz-btn" onclick="checkQuizAnswer()">उत्तर सबमिट करें</button>
+        <div id="quizResult"></div>
+    </div>
+
+    <!-- व्हाट्सएप संपर्क बॉक्स -->
+    <div class="contact-box">
+        <p style="margin: 0; font-weight: bold; color: #333;">कोई और सवाल पूछना है?</p>
+        <a href="https://wa.me/919905365456?text=السلام%20علیکم%20मुफ्ती%20साहब,%20मेरा%20ایک%20सवाल%20है।" class="whatsapp-btn" target="_blank">
+            💬 व्हाट्सएप पर संपर्क करें (+91 99053 65456)
+        </a>
+    </div>
+</div>
+
+<script>
+    window.checkQuizAnswer = function() {
+        const userAns = document.getElementById('userAnswer').value.trim().toLowerCase();
+        const resultDiv = document.getElementById('quizResult');
+        
+        // सही उत्तर "live.html" या "live" माना जाएगा
+        if (userAns === "live.html" || userAns === "live") {
+            resultDiv.style.color = "green";
+            resultDiv.innerHTML = "✅ बिल्कुल सही जवाब! शाबाश, आपको लाइव क्लास पेज का नाम याद है।";
+        } else {
+            resultDiv.style.color = "red";
+            resultDiv.innerHTML = "❌ गलत उत्तर! सही जवाब 'live.html' है। कृपया दोबारा कोशिश करें।";
+        }
+    }
+</script>
+
 </body>
 </html>
