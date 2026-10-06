@@ -3,58 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Contact - Mufti Uzair Academy</title>
-    <!-- Google Fonts for World-Class Look -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Contact - Mufti Uzair Academy</title>
+    <!-- Google Fonts for World Class Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
     <!-- Link to our External CSS File -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Floating WhatsApp Button Styling */
+        .floating-wa { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; }
+        .floating-wa:hover { background: #20ba5a; }
+        .wa-main-btn { display: inline-block; background: #25d366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-size: 16px; font-weight: bold; margin-top: 15px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        .wa-main-btn:hover { background: #20ba5a; }
+    </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">Mufti Uzair Academy</div>
-        <div class="nav-container">
-            <nav>
-                <a href="index.html" id="nav-home">होम</a>
-                <a href="courses.html" id="nav-courses">कोर्सेज</a>
-                <a href="live.html" id="nav-live">लाइव क्लास</a>
-                <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
-                <a href="contact.html" class="active" style="color: #fbbf24;" id="nav-contact">सम्पर्क</a>
-            </nav>
-            <!-- Language Selector Dropdown -->
-            <select class="lang-select" onchange="changeLanguage(this.value)">
-                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="ur">🇵🇰 اردو (Urdu)</option>
-            </select>
-        </div>
-    </header>
-
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 id="banner-title">हमसे संपर्क करें</h1>
-        <div class="urdu-subtitle">رابطہ کیجیے</div>
-    </section>
-
-    <!-- Contact Content Section -->
-    <div class="container">
-        <div class="contact-info-box" style="text-align: center;">
-            <h2 id="contact-heading" style="color: #0f172a; margin-bottom: 15px; font-size: 24px;">दाखिला और जानकारी के लिए राब्ता करें</h2>
-            <div class="urdu-q" style="margin-bottom: 20px;">داخلہ اور معلومات کے لیے رابطہ کریں</div>
-            <p id="p-phone">📞 फोन नंबर / WhatsApp: +91 XXXXXXXXXX</p>
-            <p id="p-email">📧 ईमेल: info@muftiuzairacademy.com</p>
-            <br>
-            <a href="#" class="btn-whatsapp" id="btn-wa">व्हाट्सएप पर चैट करें</a>
-        </div>
+<!-- Header / Navbar -->
+<header>
+    <div class="logo">Mufti Uzair Academy</div>
+    <div class="nav-container">
+        <nav>
+            <a href="index.html" id="nav-home">होम</a>
+            <a href="courses.html" id="nav-courses">कोर्सेज</a>
+            <a href="live.html" id="nav-live">लाइव क्लास</a>
+            <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
+            <a href="contact.html" class="active" style="color: #fbfb24;" id="nav-contact">संपर्क</a>
+        </nav>
+        <!-- Language Selector Dropdown -->
+        <select class="lang-select" onchange="changeLanguage(this.value)">
+            <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="ur">🇵🇰 اردو (Urdu)</option>
+        </select>
     </div>
+</header>
 
-    <!-- Footer -->
-    <footer>
-        <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
-    </footer>
+<!-- Page Banner -->
+<section class="page-banner">
+    <h1 id="banner-title">संपर्क करें</h1>
+    <div class="urdu-subtitle">رابطہ کیجیے</div>
+</section>
 
-    <!-- Link to our External JavaScript File -->
-    <script src="script.js"></script>
+<!-- Contact Content Section -->
+<div class="container" style="max-width: 600px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;">
+    <div class="contact-info-box" style="text-align: center;">
+        <h2 id="contact-heading" style="color: #0f172a; margin-bottom: 15px; font-size: 24px;">दाखिले और जानकारी के लिए संपर्क करें</h2>
+        <div class="urdu-q" style="margin-bottom: 20px; font-family: 'Noto Nastaliq Urdu', serif; color: #555;">داخلہ اور معلومات کے لیے رابطہ کیجیے۔</div>
+        
+        <p id="p-phone" style="font-size: 18px; font-weight: bold; color: #333; margin: 10px 0;">📞 व्हाट्सएप नंबर / WhatsApp: <span style="color: #25d366;">+91 99053 65456</span></p>
+        <p id="p-email" style="font-size: 16px; color: #666; margin: 10px 0;">📧 ईमेल: info@muftiuzairacademy.com</p>
+        
+        <a href="https://wa.me/919905365456?text=السلام%20علیکم%20मुफ्ती%20साहब,%20मुझे%20अकेडमी%20के%20कोर्स%20के%20बारे%20में%20जानकारी%20चाहिए।" class="wa-main-btn" target="_blank" id="btn-wa">
+            💬 व्हाट्सएप पर चैट करें
+        </a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
+</footer>
+
+<!-- Floating WhatsApp Button for all pages -->
+<a href="https://wa.me/919905365456?text=السلام%20علیکم%20मुफ्ती%20साहब,%20मुझे%20जानकारी%20चाहिए।" class="floating-wa" target="_blank" title="WhatsApp पर बात करें">
+    💬
+</a>
+
+<!-- Link to our External JavaScript File -->
+<script src="script.js"></script>
+
 </body>
 </html>
