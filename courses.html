@@ -3,134 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Courses - Mufti Uzair Academy</title>
-    <!-- Google Fonts for World-Class Look -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Nastaliq+Urdu:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Link to our External CSS File -->
-    <link rel="stylesheet" href="style.css">
+    <title>मुफ्ती उज़ैर एकेडमी - उपलब्ध कोर्सेज</title>
     <style>
-        /* Additional Styling for Detailed Course Syllabus */
-        .syllabus-box {
-            background: #f8fafc;
-            border-left: 4px solid #fbbf24;
-            padding: 12px 15px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-            text-align: left;
-        }
-        .syllabus-box h4 {
-            color: #0f172a;
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-        .syllabus-box ul {
-            margin: 0;
-            padding-left: 20px;
-            color: #475569;
-            font-size: 14px;
-        }
-        .syllabus-box li {
-            margin-bottom: 4px;
-        }
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
+        h1 { text-align: center; color: #1e3c72; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .course-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-top: 4px solid #1e3c72; }
+        .course-title { font-size: 20px; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .course-desc { color: #666; font-size: 14px; margin-bottom: 15px; }
+        .course-price { font-size: 18px; font-weight: bold; color: #d9534f; margin-bottom: 15px; }
+        .buy-btn { background: #007bff; color: white; border: none; padding: 10px 15px; width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .buy-btn:hover { background: #0056b3; }
+        #loading { text-align: center; font-size: 18px; color: #666; margin-top: 30px; }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">Mufti Uzair Academy</div>
-        <div class="nav-container">
-            <nav>
-                <a href="index.html" id="nav-home">होम</a>
-                <a href="courses.html" class="active" style="color: #fbbf24;" id="nav-courses">कोर्सेज</a>
-                <a href="live.html" id="nav-live">लाइव क्लास</a>
-                <a href="faq.html" id="nav-faq">सवाल-जवाब</a>
-                <a href="contact.html" id="nav-contact">सम्पर्क</a>
-            </nav>
-            <!-- Language Switcher Dropdown -->
-            <select class="lang-select" onchange="changeLanguage(this.value)">
-                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="ur">🇵🇰 اردو (Urdu)</option>
-            </select>
-        </div>
-    </header>
+<h1>📖 मुफ्ती उज़ैर एकेडमी के ऑनलाइन कोर्सेज</h1>
+<p id="loading">कोर्सेज लोड हो रहे हैं...</p>
+<div class="course-grid" id="courseContainer"></div>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <h1 id="banner-title">हमारे कोर्सेज की फेहरिस्त</h1>
-        <div class="urdu-subtitle">تمام کورسز की لسٹ</div>
-    </section>
+<!-- Firebase SDKs -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    <!-- Courses Content Section with Detailed Syllabus -->
-    <div class="container">
-        <div class="grid">
-            <!-- Course 1 -->
-            <div class="card">
-                <h3 id="c1-title">हिफ्ज़-ए-कुरआन</h3>
-                <div class="urdu-q" id="c1-urdu">حفظ القرآن</div>
-                <p id="c1-desc">बच्चों और बड़ों के लिए मज़बूत हिफ्ज़ की निगरानी और सही मखारिज के साथ मुकम्मल कुरआन हिफ्ज़ करने की कोर्स।</p>
-                
-                <!-- Detailed Syllabus Box -->
-                <div class="syllabus-box">
-                    <h4>कोर्स की मुख्य बातें:</h4>
-                    <ul>
-                        <li>रोजाना सबक और पोर की विशेष निगरानी</li>
-                        <li>तजवीद के नियमों का पक्का अभ्यास</li>
-                        <li>विशेष ऑनलाइन मौखिक इम्तिहान</li>
-                    </ul>
-                </div>
-                <br>
-                <a href="contact.html" class="btn-enroll" id="c1-btn">दाखिला लें</a>
-            </div>
+    const firebaseConfig = {
+        apiKey: "AIzaSyA4h47xTukc6Jm7gymW4pQeZmUjbLRPF8",
+        authDomain: "mufti-uzair-academy.firebaseapp.com",
+        projectId: "mufti-uzair-academy",
+        storageBucket: "mufti-uzair-academy.firebasestorage.app",
+        messagingSenderId: "569334821978",
+        appId: "1:569334821978:web:f0054458844d4a83843d63"
+    };
 
-            <!-- Course 2 -->
-            <div class="card">
-                <h3 id="c2-title">तर्जुमा व तفسीर</h3>
-                <div class="urdu-q" id="c2-urdu">ترجمہ و تفسیر</div>
-                <p id="c2-desc">कुरआन मजीद की आयतों को आसान फहम तर्जुमा और बेहतरीन तफसीर के साथ रूह में उतरने की तालीम।</p>
-                
-                <!-- Detailed Syllabus Box -->
-                <div class="syllabus-box">
-                    <h4>कोर्स की मुख्य बातें:</h4>
-                    <ul>
-                        <li>शब्द-दर-शब्द कुरआनी शब्दों का अर्थ</li>
-                        <li>सान्दर्भिक और ऐतिहासिक पृष्ठभूमि</li>
-                        <li>रोजमर्रा की जिंदगी से आयतों का जुड़ाव</li>
-                    </ul>
-                </div>
-                <br>
-                <a href="contact.html" class="btn-enroll" id="c2-btn">दाखिला लें</a>
-            </div>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-            <!-- Course 3 -->
-            <div class="card">
-                <h3 id="c3-title">बुनियादी दीन व मसाइल</h3>
-                <div class="urdu-q" id="c3-urdu">बुनियादी दीन व मसाइल</div>
-                <p id="c3-desc">नमाज़, रोज़ा, तहारत और रोज़मर्रा की जिंदगी के ज़रूरी इस्लामी मसाइल और एहकाम की तालीम।</p>
-                
-                <!-- Detailed Syllabus Box -->
-                <div class="syllabus-box">
-                    <h4>कोर्स की मुख्य बातें:</h4>
-                    <ul>
-                        <li>तहारत और वज़ू-गुस्ल का प्रैक्टिकल तरीका</li>
-                        <li>नमाज़ के ज़रूरी मसाइल और दुआएँ</li>
-                        <li>हलाल-हराम और इस्लामी तहज़ीब</li>
-                    </ul>
-                </div>
-                <br>
-                <a href="contact.html" class="btn-enroll" id="c3-btn">दाखिला लें</a>
-            </div>
-        </div>
-    </div>
+    async function loadCourses() {
+        const container = document.getElementById('courseContainer');
+        const loading = document.getElementById('loading');
+        
+        try {
+            const querySnapshot = await getDocs(collection(db, "courses"));
+            loading.style.display = 'none';
 
-    <!-- Footer -->
-    <footer>
-        <p id="footer-text">&copy; 2026 Mufti Uzair Online Academy. All Rights Reserved.</p>
-    </footer>
+            if (querySnapshot.empty) {
+                container.innerHTML = "<p style='text-align:center; width:100%;'>अभी कोई कोर्स उपलब्ध नहीं है।</p>";
+                return;
+            }
 
-    <!-- Link to our External JavaScript File -->
-    <script src="script.js"></script>
+            querySnapshot.forEach((doc) => {
+                const course = doc.data();
+                const card = document.createElement('div');
+                card.className = 'course-card';
+                card.innerHTML = `
+                    <div class="course-title">${course.title}</div>
+                    <div class="course-desc">${course.description}</div>
+                    <div class="course-price">फीस: ${course.price}</div>
+                    <button class="buy-btn" onclick="alert('कोर्स खरीदने के लिए संपर्क करें!')">अभी दाखिला लें (Enroll)</button>
+                `;
+                container.appendChild(card);
+            });
+        } catch (error) {
+            loading.innerText = "कोर्स लोड करने में समस्या आई: " + error.message;
+        }
+    }
+
+    loadCourses();
+</script>
+
 </body>
 </html>
-
