@@ -88,3 +88,32 @@ function setElementText(id, text) {
         el.innerText = text;
     }
 }
+// --- Dark Mode Toggle Logic (Add-on) ---
+document.addEventListener("DOMContentLoaded", () => {
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+
+    const toggleBtn = document.getElementById("themeToggleBtn");
+    if (toggleBtn) {
+        if (currentTheme === "dark") {
+            toggleBtn.innerText = "☀️ Light Mode";
+        } else {
+            toggleBtn.innerText = "🌙 Dark Mode";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            let theme = document.documentElement.getAttribute("data-theme");
+            if (theme === "dark") {
+                document.documentElement.setAttribute("data-theme", "light");
+                localStorage.setItem("theme", "light");
+                toggleBtn.innerText = "🌙 Dark Mode";
+            } else {
+                document.documentElement.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+                toggleBtn.innerText = "☀️ Light Mode";
+            }
+        });
+    }
+});
