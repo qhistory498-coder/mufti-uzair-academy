@@ -263,3 +263,42 @@ footer {
     font-size: 15px;
     border-top: 1px solid #1e293b;
 }
+/* --- Dark Mode Add-on Styles --- */
+[data-theme="dark"] body {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .container, 
+[data-theme="dark"] .card, 
+[data-theme="dark"] .faq-item, 
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .features-box,
+[data-theme="dark"] .contact-info-box {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333333 !important;
+}
+
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 {
+    color: #ffbf24 !important;
+}
+
+/* Theme Toggle Button Style */
+.theme-toggle-btn {
+    background: transparent;
+    border: 2px solid #ffbf24;
+    color: #ffbf24;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.2s;
+    margin-left: 10px;
+}
+
+.theme-toggle-btn:hover {
+    background: #ffbf24;
+    color: #1e172a;
+}
