@@ -88,7 +88,41 @@
         document.getElementById('userNameInput').value = "सद्दाम / छात्र";
         startMeeting();
     };
+        
+};
+
+    // --- 3-Days Free Live Trial Check ---
+    const MUA_TRIAL_DAYS = 3;
+    function checkLiveTrialAccess() {
+        let signupTimestamp = localStorage.getItem('mua_student_signup');
+        if (!signupTimestamp) {
+            signupTimestamp = new Date().getTime();
+            localStorage.setItem('mua_student_signup', signupTimestamp);
+        }
+        const elapsedTime = new Date().getTime() - parseInt(signupTimestamp);
+        const daysPassed = elapsedTime / (1000 * 3600 * 24);
+        
+        if (daysPassed > MUA_TRIAL_DAYS) {
+            const meetContainer = document.getElementById("meet-container");
+            const topBar = document.querySelector(".top-bar");
+            if (meetContainer) meetContainer.style.display = "none";
+            if (topBar) topBar.style.display = "none";
+            
+            const bodyTag = document.body;
+            const expiredDiv = document.createElement("div");
+            expiredDiv.style.cssText = "background: #161b22; color: #ffffff; padding: 40px 20px; text-align: center; border-radius: 12px; border: 2px solid #58a6ff; max-width: 500px; margin: 50px auto;";
+            expiredDiv.innerHTML = `
+                <h3 style="color: #58a6ff; margin-bottom: 15px;">⚠️ 3 दिन का फ्री ट्रायल समाप्त!</h3>
+                <p style="margin-bottom: 20px; line-height: 1.6;">मुफ्ती उज़ैर साहब की लाइव कक्षाओं और कुरआन क्लासेज से निरंतर जुड़े रहने के लिए कृपया एडमिशन फॉर्म भरें।</p>
+                <a href="contact.html" style="background: #238636; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">एडमिशन फॉर्म भरें (Enroll Now)</a>
+            `;
+            bodyTag.appendChild(expiredDiv);
+        }
+    }
+    checkLiveTrialAccess();
 </script>
+    
+
 
 </body>
 </html>
